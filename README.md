@@ -80,3 +80,10 @@ App.js의 App function을 수정하여 동작하는것 자체를 변경해서 �
 index.css로 디자인 할 수 있으며
 index.js로 불러온 `import 여기 from './App';` 이 부분과 하위 부분  `<여기 />`내의 명칭이 같아야한다.
 
+<br>
+
+- 빌드할때 : npm run build
+실제 서비스할 때는 build안에 파일 사용
+실서버 환경 완성
+
+- npx serve -s build : serve라는 웹서버 다운로드 받아서 실행시킬때 build를 document root로 하겠다.
