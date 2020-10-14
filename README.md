@@ -28,7 +28,7 @@ React는 src폴더안에서 다뤄야한다.
 위 수업에서는 class 방식을 사용
 
 - function type
-```react
+```javascript
 import React from 'react';
 import './App.css';
 function App() {
@@ -42,7 +42,7 @@ export default App;
 ```
 
 - class type
-```react
+```javascript
 import React, { Component } from 'react';
 import './App.css';
 
