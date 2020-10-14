@@ -72,3 +72,11 @@ index.js에서 App.js를 import해서 사용
 
 App.js의 App function을 수정하여 동작하는것 자체를 변경해서 사용한다.
 
+
+<br>
+
+<div align="center"><img src="./img/react_basic_3.png" width="700px" height="450px" alt="structure"></img></div>
+
+index.css로 디자인 할 수 있으며
+index.js로 불러온 `import 여기 from './App';` 이 부분과 하위 부분  `<여기 />`내의 명칭이 같아야한다.
+
