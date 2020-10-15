@@ -87,3 +87,44 @@ index.js로 불러온 `import 여기 from './App';` 이 부분과 하위 부분 
 실서버 환경 완성
 
 - npx serve -s build : serve라는 웹서버 다운로드 받아서 실행시킬때 build를 document root로 하겠다.
+
+<br>
+
+- Component 만들기
+```javascript
+class App extends Component { //
+  render() {
+    return (
+      <div className="App">
+        Hello React !! 
+      </div>
+    );
+  }
+}
+```
+: App이라는 class를 만들고 react가 갖고있는 component라는 클래스를 상속해서 새로운 클래스를 만드는 것, 그 클래스는 render라는 메소드를 가지고 있다.
+
+<br>
+
+- html -> react로 바꾸기 
+```html
+<html>
+    <body>
+        <header>
+            <h1>WEB</h1>
+            World wide web!
+        </header>
+    </body>
+</html>
+```
+: header태그 부분을 Subject라는 이름으로 변경하고 싶음
+
+<br>
+
+- Component에서는 최상위 태그만 사용할 수 있음
+
+<div align="center"><img src="./img/react_basic_4.png" width="700px" height="450px" alt="structure"></img></div>
+
+: Subject 컴포넌트를 만들어서 App 컨포넌트에 태그를 불러와서 실행해주면 html 코드로 보여지는 것을 확인할 수 있다.
+
+<br>
