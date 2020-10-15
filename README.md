@@ -128,3 +128,24 @@ class App extends Component { //
 : Subject 컴포넌트를 만들어서 App 컨포넌트에 태그를 불러와서 실행해주면 html 코드로 보여지는 것을 확인할 수 있다.
 
 <br>
+
+- props
+```javascript
+class Subject extends Component {
+  render() {
+    return (
+      <header>
+            <h1>{this.props.title}</h1>
+            {this.props.sub}
+      </header>
+    );
+  }
+}
+```
+
+```javascript
+ <Subject title="WEB" sub="world wide web!"></Subject>
+<Subject title="React" sub="for UI"></Subject>
+```
+
+: props를 사용하여 같은 컨포넌트를 다른 내용으로 재사용할 수 있음 -> 사용자 정의 태그
