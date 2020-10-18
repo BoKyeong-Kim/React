@@ -154,3 +154,19 @@ class Subject extends Component {
 
 - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/related)
 위 Tool을 설치하면 개발자 도구로 리액트 코드를 확인할 수 있고, 다른값을 넣어 테스트 해볼 수 있다.
+
+<br>
+
+- state
+
+props : 사용자가 컨포넌트를 사용하는 입장에서 중요
+state : prop에 따라서 내부 구현에 필요한 것
+
+constructor : 어떤 컨포넌트가 실행될때 render()보다 먼저 실행되면서 컨포넌트를 초기화해주고 싶은 것은 constructor에 선언.(제일먼저 실행되서 초기화를 담당)
+
+<br>
+
+react에서는 props,state의 값이 바뀌면 state를 가지고 있는 컴포넌트의 render()가 호출된다. render()의 하위 컴포넌트들도 호출된다. -> props나 state가 변경되면 화면이 다시 그려짐
+
+> render : 어떤 html을 그릴것인가 
+
