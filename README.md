@@ -170,3 +170,31 @@ react에서는 props,state의 값이 바뀌면 state를 가지고 있는 컴포�
 
 > render : 어떤 html을 그릴것인가 
 
+<br>
+
+개발자 모드에서 `debugger`라는 부분에서 실행을 멈춤 - 기다리고 있는 상태
+
+e.preventDefault() : 기본적인 동작을 막음 - html 태그들에 대해 이벤트를 걸때는 태그가 갖고있는 기본적인 동작을 못하게 해야하는 경우가 있음 그럴때 사용 
+
+<br>
+
+- bind() - this를 가르키는 context를 변경하여 바로 실행시켜주는 메소드
+
+예시 
+```javascript
+var obj = {name:'boka'};
+
+function bindTest(){
+  console.log(this.name);
+}
+
+bindTest();
+>> undefined
+
+var bindTest2 = bindTest.bind(obj);
+
+bindTest2();
+>> boka
+```
+
+
