@@ -8,12 +8,22 @@ const router = require('./router');
 
 const app = express();
 
-// node.js 애플리케이션 사용, 서버 초기화하여 설정할수있도록 서버를 만들고 express에사 초기화한 해당 앱을 전달해야한다.
+// node.js 애플리케이션 사용, 서버 초기화하여 설정할수있도록 서버를 만들고 express에서 초기화한 해당 앱을 전달해야한다.
 const server = http.createServer(app);
 const io = socketio(server);
 
 io.on('connection', (socket) => {
     console.log('We have a new connection!!!');
+
+    socket.on('join', ({ name, room }, callback) => { //callback함수로 에러 내보기
+        console.log(name, room);
+        
+        const error = true;
+
+        if(error){
+            callback({error : 'error'});
+        }
+    })
 
     socket.on('disconnect', () =>{
         console.log('User had left!!!');
