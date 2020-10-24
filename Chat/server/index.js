@@ -20,12 +20,12 @@ io.on('connection', (socket) => {
         
         const error = true;
 
-        if(error){
-            callback({error : 'error'});
+        if(error){ 
+            callback({error : 'error'}); // 백엔드 생성 후 콜백 전달 가능 
         }
     })
 
-    socket.on('disconnect', () =>{
+    socket.on('disconnect', () =>{ //연결 해제 이벤트
         console.log('User had left!!!');
     }) 
 }); //기본 클라이언트 측을 생성하여 실제로 실시간 수신, 연결 및 해제
