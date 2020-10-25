@@ -2,6 +2,8 @@ const express = require('express');
 const socketio = require('socket.io'); // http 요청이 느리기때문에 소켓을 사용하는게 좋음
 const http = require('http');
 
+const { addUser, removeUser, getUser, getUsersInRoom } = require('./users.js');
+
 const PORT = process.env.PORT || 5000;
 
 const router = require('./router');
