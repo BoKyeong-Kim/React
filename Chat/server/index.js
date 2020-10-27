@@ -15,19 +15,28 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 io.on('connection', (socket) => {
-    console.log('We have a new connection!!!');
-
     socket.on('join', ({ name, room }, callback) => { //callback함수로 에러 내보기
-        console.log(name, room);
-        
-        const error = true;
+        const { error, user } = addUser({ id:socket.id, name, room });
 
-        if(error){ 
-            callback({error : 'error'}); // 백엔드 생성 후 콜백 전달 가능 
-        }
-    })
+        if(error) return callback(error);
 
-    socket.on('disconnect', () =>{ //연결 해제 이벤트
+        socket.emit('message', { user: 'admin', text: `${user.name}, welcome to the room ${user.room}`});
+        socket.broadcast.to(user.room).emit('message', { user: admin , text: `${user.name}, has joined!`}); //모든 사용자에게 새로운 사람이 접속한 것을 알려줌
+
+        socket.join(user.room);
+
+        callback();
+    });
+
+    socket.on('sendMessage', (message, callback) => {
+        const user = getUser(socket.id);
+
+        io.to(user.room).emit('message', { user: user.name, text: message});
+
+        callback();
+    });
+
+    socket.on('disconnect', () => { //연결 해제 이벤트
         console.log('User had left!!!');
     }) 
 }); //기본 클라이언트 측을 생성하여 실제로 실시간 수신, 연결 및 해제
