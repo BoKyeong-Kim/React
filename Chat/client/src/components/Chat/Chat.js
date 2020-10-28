@@ -36,8 +36,18 @@ const Chat = ( {location} ) => {
         })
     }, [messages]);
 
+    // function for sending messages
+
     return(
-        <h1>Chat</h1>
+        <div className="outerContainer">
+            <div className="container">
+                <input
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
+                onKeyPress={event => event.key === 'Enter' ? setMessage(event) : null}
+                />
+            </div>
+        </div>
     )
 }
 
