@@ -25,6 +25,7 @@ io.on('connection', (socket) => {
 
         socket.join(user.room);
 
+        io.to(user.room).emit('roomData', { room : user.room, users:getUsersInRoom(user.room)})
         callback();
     });
 
@@ -32,12 +33,17 @@ io.on('connection', (socket) => {
         const user = getUser(socket.id);
 
         io.to(user.room).emit('message', { user: user.name, text: message});
+        io.to(user.room).emit('roomData', { room: user.room, users:getUsersInRoom(user.room)});
 
         callback();
     });
 
     socket.on('disconnect', () => { //연결 해제 이벤트
-        console.log('User had left!!!');
+        const user = removeUser(socket.id);
+
+        if(user) {
+            io.to(user.room).emit('message', {user : 'admin', text : `${user.name} has left.`})
+        }
     }) 
 }); //기본 클라이언트 측을 생성하여 실제로 실시간 수신, 연결 및 해제
 
