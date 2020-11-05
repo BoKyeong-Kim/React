@@ -10,13 +10,17 @@
 
             class LikeButton extends React.Component {
                 constructor(props) {
-                super(props);       
+                super(props);      
+                this.state = {
+                    liked : false
+                };
             }
 
                 render() {
                     return e(
                         'button', 
-                    { onClick: () => {console.log('clicked')}, type:"submit"}, 'Like') 
+                         { onClick: () => { this.setState({ liked:true })}, type:"submit"},
+                          this.state.liked === true ? 'Liked' : 'Like') 
                     //<button onclick ="()=> {console.log('clicked')}" type="submit" >Like</button> : 버튼태그를 만들겠다.
                 }
             }
