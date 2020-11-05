@@ -206,3 +206,10 @@ bindTest2();
 
 ## Lecture
 
+- 웹팩 : react -> javascript 파일로 만들어주는 것 
+- reactDOM : 화면에 실제로 렌더링해줌
+- 순서대로 실행
+- state : 바뀌는 부분, 바뀔 수 있는 부분
+  - ex) Like -> Liked 
+
+
