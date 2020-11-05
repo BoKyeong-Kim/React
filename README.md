@@ -211,5 +211,5 @@ bindTest2();
 - 순서대로 실행
 - state : 바뀌는 부분, 바뀔 수 있는 부분
   - ex) Like -> Liked 
-
+- babel : javascript에서 html 문법을 사용할 수 있음
 

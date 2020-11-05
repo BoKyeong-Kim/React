@@ -2,12 +2,11 @@
     <head>
         <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     </head>
     <body>
         <div id="root"></div> <!--결과 : <div id="root"><button>Like</button></div> -->
-        <script>
-            const e = React.createElement;
-
+        <script type="text/babel">
             class LikeButton extends React.Component {
                 constructor(props) {
                 super(props);      
@@ -17,17 +16,16 @@
             }
 
                 render() {
-                    return e(
-                        'button', 
-                         { onClick: () => { this.setState({ liked:true })}, type:"submit"},
-                          this.state.liked === true ? 'Liked' : 'Like') 
-                    //<button onclick ="()=> {console.log('clicked')}" type="submit" >Like</button> : 버튼태그를 만들겠다.
+                    return <button type="submit" onClick={() => { this.setState({ liked:true })}}>
+                        {this.state.liked === true ? 'Liked' : 'Like'} 
+                        </button>
+                    // JSX (HTML + XML)
                 }
             }
         </script>
-        <script>
+        <script type="text/babel">
             // LikeButton 컨포넌트를 root에 그림
-            ReactDOM.render(e(LikeButton), document.querySelector('#root'));
+            ReactDOM.render(<LikeButton />, document.querySelector('#root'));
         </script>
 
 
