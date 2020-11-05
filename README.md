@@ -197,4 +197,12 @@ bindTest2();
 >> boka
 ```
 
+-----
+
+백엔드 : Heroku 배포
+프론트엔드 : netlify 배포
+
+<br>
+
+## Lecture
 
