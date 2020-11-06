@@ -1,5 +1,7 @@
 <html>
     <head>
+        <meta charset="UTF-8" />
+        <title>구구단</title>
         <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -7,25 +9,50 @@
     <body>
         <div id="root"></div> <!--결과 : <div id="root"><button>Like</button></div> -->
         <script type="text/babel">
-            class LikeButton extends React.Component {
-                constructor(props) {
-                super(props);      
-                this.state = {
-                    liked : false
-                };
-            }
+            class GuGuDan extends React.Component {
+                constructor(props){
+                    super(props);
+                    this.state = {
+                        first: Math.ceil(Math.random() * 9),
+                        second: Math.ceil(Math.random() * 9),
+                        value: '',
+                        result: '',
+                    };
+                }
 
                 render() {
-                    return <button type="submit" onClick={() => { this.setState({ liked:true })}}>
-                        {this.state.liked === true ? 'Liked' : 'Like'} 
-                        </button>
-                    // JSX (HTML + XML)
+                    return (
+                        <div>
+                            <div>{this.state.first} 곱하기 {this.state.second}는?</div>
+                            <form onSubmit = {(e) =>{
+                                e.preventDefault();
+                                if(parseInt(value)=== this.state.first * this.state.second) {
+                                    this.setState({
+                                        result:"정답",
+                                        first:Math.ceil(Math.random() *9),
+                                        second:Math.ceil(Math.random() *9),
+                                        value:'',
+                                    });
+                                } else {
+                                        this.setState({
+                                            result:"땡",
+                                            value:'',
+                                        });
+                                    }
+                                }}>
+                                {/*input에서 onChange, setState로 값을 변경해주지않으면 상태가 변경되지않음*/}
+                                <input type="number" value={this.state.value} onChange={(e) => this.setState({ value : e.target.value})}/> 
+                                <button>입력!</button>
+                            </form>
+                            <div>{this.state.result}</div>
+                        </div>
+                    )
                 }
             }
+            
         </script>
         <script type="text/babel">
-            // LikeButton 컨포넌트를 root에 그림
-            ReactDOM.render(<LikeButton />, document.querySelector('#root'));
+            ReactDOM.render(<GuGuDan />, document.querySelector('#root'));
         </script>
 
 
