@@ -20,28 +20,36 @@
                     };
                 }
 
+                // 클래스의 메서드로 만들어줌
+                onSubmit = (e) => {
+                    e.preventDefault();
+                    if(parseInt(this.state.value)=== this.state.first * this.state.second) {
+                        this.setState({
+                            result:"정답",
+                            first:Math.ceil(Math.random() *9),
+                            second:Math.ceil(Math.random() *9),
+                            value:'',
+                        });
+                    } else {
+                            this.setState({
+                                result:"땡",
+                                value:'',
+                            });
+                        }
+                };
+
+                onChange = (e) => { //input안에 들어있는 value를 바꿔줘야함.
+                    this.setState({ value : e.target.value})
+                };
+
+
                 render() {
                     return (
                         <div>
                             <div>{this.state.first} 곱하기 {this.state.second}는?</div>
-                            <form onSubmit = {(e) =>{
-                                e.preventDefault();
-                                if(parseInt(value)=== this.state.first * this.state.second) {
-                                    this.setState({
-                                        result:"정답",
-                                        first:Math.ceil(Math.random() *9),
-                                        second:Math.ceil(Math.random() *9),
-                                        value:'',
-                                    });
-                                } else {
-                                        this.setState({
-                                            result:"땡",
-                                            value:'',
-                                        });
-                                    }
-                                }}>
+                            <form onSubmit = {this.onSubmit}>
                                 {/*input에서 onChange, setState로 값을 변경해주지않으면 상태가 변경되지않음*/}
-                                <input type="number" value={this.state.value} onChange={(e) => this.setState({ value : e.target.value})}/> 
+                                <input type="number" value={this.state.value} onChange={this.onChange}/> 
                                 <button>입력!</button>
                             </form>
                             <div>{this.state.result}</div>
