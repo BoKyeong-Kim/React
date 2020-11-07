@@ -25,7 +25,7 @@
                     e.preventDefault();
                     if(parseInt(this.state.value)=== this.state.first * this.state.second) {
                         this.setState({
-                            result:"정답",
+                            result: "정답 : " + this.state.first*this.state.second, //this.state.value
                             first:Math.ceil(Math.random() *9),
                             second:Math.ceil(Math.random() *9),
                             value:'',
@@ -45,7 +45,7 @@
 
                 render() {
                     return (
-                        <div>
+                        <React.Fragment>
                             <div>{this.state.first} 곱하기 {this.state.second}는?</div>
                             <form onSubmit = {this.onSubmit}>
                                 {/*input에서 onChange, setState로 값을 변경해주지않으면 상태가 변경되지않음*/}
@@ -53,7 +53,7 @@
                                 <button>입력!</button>
                             </form>
                             <div>{this.state.result}</div>
-                        </div>
+                        </React.Fragment>
                     )
                 }
             }

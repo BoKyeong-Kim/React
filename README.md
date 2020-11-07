@@ -213,5 +213,39 @@ bindTest2();
   - ex) Like -> Liked 
 - babel : 모든 브라우저에서 돌아갈 수 있는 문법으로 바꿔줌
   - javascript에서 html 문법을 사용할 수 있음
-  
+
+<br>
+
+- 기존에 return 뒤에 div 태그로 감싸줘야만 에러가 안나는데 그럴경우 CSS를 적용하는데에 번거로움이 생김
+- 대신 `<>`태그로 감싸주거나, `<React.Fragment>` 태그로 감싸주면 불필요한 div태그를 방지할 수 있음.
+
+``` javascript
+// 변경 전
+return (
+  <div>
+      <div>{this.state.first} 곱하기 {this.state.second}는?</div>
+      <form onSubmit = {this.onSubmit}>
+          {/*input에서 onChange, setState로 값을 변경해주지않으면 상태가 변경되지않음*/}
+          <input type="number" value={this.state.value} onChange={this.onChange}/> 
+          <button>입력!</button>
+      </form>
+      <div>{this.state.result}</div>
+  <div>
+)
+```
+
+```javascript
+// 변경 후
+return (
+  <React.Fragment>
+      <div>{this.state.first} 곱하기 {this.state.second}는?</div>
+      <form onSubmit = {this.onSubmit}>
+          {/*input에서 onChange, setState로 값을 변경해주지않으면 상태가 변경되지않음*/}
+          <input type="number" value={this.state.value} onChange={this.onChange}/> 
+          <button>입력!</button>
+      </form>
+      <div>{this.state.result}</div>
+  </React.Fragment>
+)
+```
 
