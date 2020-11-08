@@ -30,18 +30,23 @@
                             second:Math.ceil(Math.random() *9),
                             value:'',
                         });
+                    this.input.focus()
                     } else {
                             this.setState({
                                 result:"땡",
                                 value:'',
                             });
-                        }
+                    }
+                    this.input.focus()
                 };
 
                 onChange = (e) => { //input안에 들어있는 value를 바꿔줘야함.
                     this.setState({ value : e.target.value})
                 };
 
+                input;
+
+                onRefInput = (c) => {this.input = c;};
 
                 render() {
                     return (
@@ -49,7 +54,7 @@
                             <div>{this.state.first} 곱하기 {this.state.second}는?</div>
                             <form onSubmit = {this.onSubmit}>
                                 {/*input에서 onChange, setState로 값을 변경해주지않으면 상태가 변경되지않음*/}
-                                <input type="number" value={this.state.value} onChange={this.onChange}/> 
+                                <input ref={this.onRefInput} type="number" value={this.state.value} onChange={this.onChange}/> 
                                 <button>입력!</button>
                             </form>
                             <div>{this.state.result}</div>

@@ -249,3 +249,57 @@ return (
 )
 ```
 
+<br>
+
+- react의 편한점 : 데이터를 변화시키면 화면에 자동으로 보여줌
+- setState : 새로운 값을 리턴하는 함수
+
+```javascript
+// 변경 전 
+ if(parseInt(this.state.value)=== this.state.first * this.state.second) {
+  this.setState({
+      result: "정답 : " + this.state.value 
+      first:Math.ceil(Math.random() *9),
+      second:Math.ceil(Math.random() *9),
+      value:'',
+  });
+}
+```
+
+```javascript
+// 변경 후
+ if(parseInt(this.state.value)=== this.state.first * this.state.second) {
+  this.setState(() => {
+     return{ 
+      result: "정답 : " + this.state.value, //<-- 현재 state부분  //
+      first:Math.ceil(Math.random() *9),                      // 미래 state 부분
+      second:Math.ceil(Math.random() *9),                     //
+      value:'',                                               //
+     }
+  });
+}
+```
+
+- setState에 새로운 state를 return하는 함수를 넣어줌
+
+
+```javascript
+// 변경 후 
+ if(parseInt(this.state.value)=== this.state.first * this.state.second) {
+  this.setState((prevState) => { //예전 상태값을
+     return{ // 다음 상태값에서 활용
+      result: "정답 : " + prevState.value,
+      first:Math.ceil(Math.random() *9),
+      second:Math.ceil(Math.random() *9), 
+      value:'',
+     }
+  });
+}
+```
+
+<br>
+
+- dom에 접근하고 싶으면 ref라는 함수를 붙여서 접근가능
+
+- setState를 할때에는 render 함수가 다시 실행된다 -> render를 자주하면 느려짐
+  - 함수 자체는 render안에 작성하는 것 보다 밖으로 꺼내서 선언해주는게 좋다.
