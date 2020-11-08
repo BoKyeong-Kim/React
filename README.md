@@ -206,6 +206,9 @@ bindTest2();
 
 ## Lecture
 
+- 영상 : [제로초님의 React 강의](https://www.youtube.com/watch?v=V3QsSrldHqI&list=PLcqDmjxt30RtqbStQqk-eYMK8N-1SYIFn)
+
+
 - 웹팩 : react -> javascript 파일로 만들어주는 것 
 - reactDOM : 화면에 실제로 렌더링해줌
 - 순서대로 실행
@@ -361,4 +364,16 @@ module.exports = WordRelay;
 
 <br>
 
-- `npm i -D @babel/core @babel/preset-env` : babel설치
+- `npm i -D @babel/core` : 기본적인 babel 브라우저에 맞게 알아서 최신문법으로 가져옴
+- `npm i -D @babel/preset-env` : 환경에 맞게 바꿔주는 것 
+- `npm i -D @babel/preset-react` : jsx 지원
+- `npm i -D babel-loader` : babel과 webpack 연결
+- `npm i -D @babel/plugin-proposal-class-properties` : state 문법 사용하기위해서 설치
+
+
+<br>
+
+- commit : react webpack setting done
+
+<div align="center"><img src="./img/react_lecture_1.png" width="700px" height="450px" alt="structure"></img></div>
+
