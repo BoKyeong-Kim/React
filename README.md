@@ -252,7 +252,8 @@ return (
 <br>
 
 - react의 편한점 : 데이터를 변화시키면 화면에 자동으로 보여줌
-- setState : 새로운 값을 리턴하는 함수
+
+### setState : 새로운 값을 리턴하는 함수
 
 ```javascript
 // 변경 전 
@@ -303,3 +304,23 @@ return (
 
 - setState를 할때에는 render 함수가 다시 실행된다 -> render를 자주하면 느려짐
   - 함수 자체는 render안에 작성하는 것 보다 밖으로 꺼내서 선언해주는게 좋다.
+
+
+<br>
+
+### React Hooks
+
+```javascript
+// state 선언하는 방법
+const Test= () => {
+  const [example, setExample] = React.useState('초기값 선언')
+
+  return <div>{example}</div>
+}
+```
+- 주의할 점 : 위 예에서는 Test 컨포넌트안에 example, setExample를 선언해주어야함.
+
+- Hooks에서는 input의 ref를 `React.useRef(null)`를 통해 dom에 접근한다.
+  - dom에 접근할때는 current라는걸 추가하여 `inputRef.current.focus()` 형식으로 접근
+- Hooks에서는 상태를 바꾸면 함수 전체가 다시 실행 -> 조금 더 느릴 수 있음
+- react사용시 html 태그안에서는 class -> className, for -> htmlfor로 사용해야함.
