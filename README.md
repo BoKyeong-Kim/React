@@ -324,3 +324,41 @@ const Test= () => {
   - dom에 접근할때는 current라는걸 추가하여 `inputRef.current.focus()` 형식으로 접근
 - Hooks에서는 상태를 바꾸면 함수 전체가 다시 실행 -> 조금 더 느릴 수 있음
 - react사용시 html 태그안에서는 class -> className, for -> htmlfor로 사용해야함.
+
+<br>
+
+### webpack
+- 여러개의 자바스크립트 파일을 하나로 합친 파일로 만들어주는 것
+- 웹팩을 위한 자바스크립트 실행기를 알아야한다 = 노드를 알아야한다.
+- `npm i react react-dom` : react, react-dom을 설치
+- `npm i -D webpack webpack-cli` : react할 때 필요한 webpack 설치 
+
+- script로 불러오지않고 모듈로 가져옴
+
+```
+const React = require('react');
+const ReactDom = require('react-dom');
+```
+
+- 파일을 쪼개는 경우 const로 선언해주고 exports로 내보내줘야한다.
+
+```javascript
+const React = require('react'); 
+const { Component } = React;
+
+class WordRelay extends Component {
+    state = {
+
+    };
+
+    render() {
+
+    }
+}
+
+module.exports = WordRelay;
+```
+
+<br>
+
+- `npm i -D @babel/core @babel/preset-env` : babel설치
