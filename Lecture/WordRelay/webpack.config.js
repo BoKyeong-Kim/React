@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require('webpack');
+const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
     name: 'wordrelay-setting',
@@ -26,15 +26,22 @@ module.exports = {
                     debug : true
                 }], '@babel/preset-react'
             ],
-            plugins: ['@babel/plugin-proposal-class-properties']
+            plugins: ['@babel/plugin-proposal-class-properties',
+                    'react-refresh/babel'
+                ]
             },
         }],
     },
     plugins: [ //추가적으로 하고싶은 작업
-        new webpack.LoaderOptionsPlugin({debug:true})
+        new RefreshWebpackPlugin
     ],
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'app.js'
-    } // 출력
+        filename: 'app.js',
+        publicPath : '/dist/',
+    }, // 출력
+    devServer: { //소스코드의 변경점을 확인해줌 
+        publicPath : '/dist/',
+        hot : true,
+    }
 }

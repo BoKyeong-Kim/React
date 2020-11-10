@@ -370,6 +370,9 @@ module.exports = WordRelay;
 - `npm i -D babel-loader` : babel과 webpack 연결
 - `npm i -D @babel/plugin-proposal-class-properties` : state 문법 사용하기위해서 설치
 
++) 추가 설치
+- npm i react-refresh @pmmmwh/react-refresh-webpack-plugin -D
+- npm i -D webpack-dev-server : 개발용 서버 
 
 <br>
 
@@ -377,3 +380,12 @@ module.exports = WordRelay;
 
 <div align="center"><img src="./img/react_lecture_1.png" width="700px" height="450px" alt="structure"></img></div>
 
+<br>
+
+### 주의사항
+
+- input을 사용할 떄 value를 써주려면 onChange도 함께 써주어야한다.
+- 또는 defaultValue만 써준다.
+
+
+<br>
