@@ -389,3 +389,70 @@ module.exports = WordRelay;
 
 
 <br>
+
+### NumberBaseball
+
+- .jsx 파일에서 export를 해주는 방법에 따라 import 하는 것이 다름
+```javascript
+export const hello = 'hello'; // import { hello }
+export const bye = 'bye'; // import { bye }
+// 한번에 가져올수도 있음 import { hello, bye }
+
+export default NumberBaseball; // import NumberBaseball
+// module.exports와 호환이 되며 노드 모듈 시스템에서는 아래 두 코드가 동일하다.
+// module.exports = { hello : 'a' };
+// exports.hello = 'a'
+```
+
+- webpack에서 import 쓰면 에러난다.
+
+<br>
+
+- map : react에서의 반복문
+```javascript
+<il>
+    {['배열','테스트','해보기','반복문으로'].map((v) => {
+        return(
+            <li>{v}</li>
+        )
+    })}
+</il>
+
+>> 배열
+>> 테스트
+>> 해보기
+>> 반복분으로
+```
+
+<br>
+
+- key : 중복되면 안되는 값(고유)
+  - key값에 i(index)를 넣지않는것이 좋다 = key의 목적은 성능최적화기 떄문
+  - react에서 key를 기준으로 element를 추가, 수정, 삭제하기 떄문에 배열의 순서가 바뀌면 문제가 생긴다.
+```javascript
+<ul>
+  {[
+    { word : '배열' , len : 2 },
+    { word : '테스트' , len : 3 },
+    { word : '해보기' , len : 3 },
+    { word : '반복문으로' , len : 5 },
+  ].map((v) => { // (v,i)로 넣게되면 i는 index값을 출력해줌
+    return ( // 화살표 함수 사용하면 생략가능
+      <il key={v.word}>{v.word} - {v.len}</il>
+      // 요소가 추가만 되는 배열의 경우 i를 써도 무관함.
+    )
+  })}
+</ul>
+
+>> 배열 - 2
+>> 테스트 - 3
+>> 해보기 - 3 
+>> 반복문으로 - 5
+```
+
+<br>
+
+- 컨포넌트를 따로 빼는 이유
+  - 가독성
+  - 재사용성
+  - 성능최적화때 더 좋음
