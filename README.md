@@ -460,3 +460,23 @@ export default NumberBaseball; // import NumberBaseball
   - ex) 부모-자식 관계에서 자식이 자식을 갖고 `할아버지-아빠-나` 의 관계일 때, 할아버지가 나에게 props를 전달해주게 되고 점점 더 복잡한 관계가 되는 경우 => 이럴 경우에 쓰이는게 redux, context
 - react 자체에 context가 있고 context를 좀 더 복잡한일을 할 수 있게 만든것이 redux
 - 주석 : `{/* */}`
+
+<br>
+
+- 불변성 : react에서는 아래와 같은 코드처럼 작성하면 안된다.
+  - react가 어떤게 변했는지 감지를 하지 못하기 떄문
+```javascript
+const array = []
+array.push(1)
+array
+>> [1]
+```
+
+- 감지하게 하는 방법
+  - 새로운 변수에 기존 배열을 복사해두고, 새로운 값을 넣어준다.
+  - push를 하면 바뀐게 없다고 인식하고 렌더를 하지않는다.
+```javascript
+const array2 = [...array, 2]
+array2
+>> [1, 2]
+```
