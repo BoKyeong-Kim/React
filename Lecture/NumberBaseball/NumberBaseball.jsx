@@ -2,7 +2,6 @@ import React , { Component } from 'react';
 import Try from './Try';
 
 function getNumbers() { //숫자 4개를 겹치지않고 랜덤하게 뽑는 함수
-
 }
 
 class NumberBaseball extends Component {
@@ -11,24 +10,24 @@ class NumberBaseball extends Component {
         value : '',
         answer : getNumbers(),
         tries : [],
-    }
+    };
 
+    onSubmitForm = (e) => {
+        e.preventDefault();
+        console.log(this.state.value);
 
-    fruit = [
-        { fruits : '사과' , taste : '맛있다' },
-        { fruits : '바나나' , taste : '달다' },
-        { fruits : '귤' , taste : '시다' },
-        { fruits : '배' , taste : '시원하다' },
-    ]
+    };
 
-    onSubmitForm = () => {
+    onChangeInput = (e) => {
+        this.setState({ value : e.target.value})
+    };
 
-    }
-
-    onChangeInput = () => {
-
-    }
-
+    fruits = [
+        { fruit : '사과' , taste : '맛있다' },
+        { fruit : '바나나' , taste : '달다' },
+        { fruit : '귤' , taste : '시다' },
+        { fruit : '배' , taste : '시원하다' },
+    ];
 
     render() {
         return (
@@ -39,9 +38,9 @@ class NumberBaseball extends Component {
                 </form>
                 <div>시도 : {this.state.tries.length}</div>
                 <ul>
-                    {this.fruit.map((v,i) => {
+                    {this.fruits.map((v,i) => {
                         return(
-                            <Try value={v} index={i}/>
+                            <Try key={v.fruit + v.taste} value={v} index={i}/>
                         )
                     })}
                 </ul>

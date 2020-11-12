@@ -456,3 +456,7 @@ export default NumberBaseball; // import NumberBaseball
   - 가독성
   - 재사용성
   - 성능최적화때 더 좋음
+- react에서 대부분의 문제는 props로 인해 발생한다.
+  - ex) 부모-자식 관계에서 자식이 자식을 갖고 `할아버지-아빠-나` 의 관계일 때, 할아버지가 나에게 props를 전달해주게 되고 점점 더 복잡한 관계가 되는 경우 => 이럴 경우에 쓰이는게 redux, context
+- react 자체에 context가 있고 context를 좀 더 복잡한일을 할 수 있게 만든것이 redux
+- 주석 : `{/* */}`
