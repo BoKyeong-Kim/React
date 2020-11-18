@@ -22,9 +22,11 @@ class NumberBaseball extends Component {
     onSubmitForm = (e) => {
         e.preventDefault();
         if(this.state.value === this.state.answer.join('')){
-            this.setState({
-                result : '홈런!',
-                tries : [...this.state.tries, { try : this.state.value, result:'홈런!'}]
+            this.setState((prevState) => { //옛날 state로 현재 state를 만들때 prevState 사용
+                return{
+                    result : '홈런!',
+                    tries : [...prevState.tries, { try : value, result:'홈런!'}]
+                }
             })
             alert('게임을 다시 시작합니다!')
             this.setState({
@@ -54,9 +56,11 @@ class NumberBaseball extends Component {
                         ball += 1;
                     }
                 }
-                this.setState({
-                    tries : [...this.state.tries, { try: this.state.value, result:`${strike} 스트라이크, ${ball} 볼입니다.`}],
-                    value : '',
+                this.setState((prevState) => {
+                    return {
+                        tries : [...prevState.tries, { try: this.state.value, result:`${strike} 스트라이크, ${ball} 볼입니다.`}],
+                        value : '',
+                    }
                 });
             }
         }
