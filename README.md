@@ -480,3 +480,9 @@ const array2 = [...array, 2]
 array2
 >> [1, 2]
 ```
+
+<br>
+
+- Props나 state가 바뀌었을 떄 render가 다시된다.
+  - setState에 값이 없어도 작동을 하기때문에 렌더링이 되지않아야할때도 렌더링이 되어버린다.
+  - shouldComponentUpdate 함수로 렌더링을 할 경우와 아닌경우에 대해 조건을 주어서 처리하면 재랜더링이 되지않는다.
