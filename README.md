@@ -483,6 +483,10 @@ array2
 
 <br>
 
+### 리액트 성능향상
 - Props나 state가 바뀌었을 떄 render가 다시된다.
   - setState에 값이 없어도 작동을 하기때문에 렌더링이 되지않아야할때도 렌더링이 되어버린다.
   - shouldComponentUpdate 함수로 렌더링을 할 경우와 아닌경우에 대해 조건을 주어서 처리하면 재랜더링이 되지않는다.
+- shouldComponentUpdate 대신 PureComponent를 사용하는 방법도 있음
+    - PureComponent는 객체({})나 배열([]) 바뀌었는지 안바뀌었는지 판단하는걸 어려워함.
+    - setState에서 {a:1}을 하면 새로 렌더링이 되므로 state에 객체구조를 안쓰는것이 좋다.

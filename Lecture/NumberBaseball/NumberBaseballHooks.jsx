@@ -1,5 +1,6 @@
 import React from 'react';
 import Try from './TryHooks';
+const { useState } = React;
 
 function getNumbers() { //숫자 4개를 겹치지않고 랜덤하게 뽑는 함수
     const candidate = [1,2,3,4,5,6,7,8,9];
@@ -32,7 +33,7 @@ const NumberBaseball = () => {
             const answerArray = value.split('').map((v)=>parseInt(v));
             let strike = 0;
             let ball = 0;
-            if(this.state.value.length >= 9) { //10번 이상 틀렸을 떄 
+            if(value.length >= 9) { //10번 이상 틀렸을 떄 
                 setResult(`10번 넘게 틀려서 실패! 답은 ${answer.join(',')}였습니다.`);
                 alert('게임을 다시 시작합니다!')
                 setValue('');
@@ -55,7 +56,7 @@ const NumberBaseball = () => {
     };
 
     const onChangeInput = (e) => {
-        setValue (e.target.value)
+        setValue(e.target.value)
     };
 
     return (

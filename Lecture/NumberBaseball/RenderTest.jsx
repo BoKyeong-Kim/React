@@ -1,19 +1,22 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class Test extends Component {
+class Test extends PureComponent {
     state = {
         counter : 0,
-    }
-
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        if (this.state.counter !== nextState.counter) {
-            return true;
-        }
-        return false;
+        string : 'hello',
+        number : 1,
+        boolean : true,
+        object : {},
+        array : [],
     }
 
     onClick = () => {
-        this.setState({});
+        //const array = this.state.array; 
+        //this.state.array.push(5); 
+        //새로운 array를 만들고싶으면 위 방법이 아니라 아래의 방법을 사용해야함.
+        this.setState({
+            array: [...this.state.array, 1],
+        });
     }
 
     render() {
