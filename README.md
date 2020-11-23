@@ -490,3 +490,10 @@ array2
 - shouldComponentUpdate 대신 PureComponent를 사용하는 방법도 있음
     - PureComponent는 객체({})나 배열([]) 바뀌었는지 안바뀌었는지 판단하는걸 어려워함.
     - setState에서 {a:1}을 하면 새로 렌더링이 되므로 state에 객체구조를 안쓰는것이 좋다.
+
+<br>
+
+### React.createRef 
+- 기존에 input태그에 ref를 쓰면 함수를 만들어서 사용하곤 했는데, createRef를 호출해서 사용하면 inputRef에 createRef()를 담아서 사용할 수 있다. (더 간편)
+- 기존에 만들어서 사용했던 함수는 console.log를 찍어볼 수 있고 예전 state를 가져올 수 있고, 미세한 작업을 할 수있고  다른 동작을 수행할 수 있는 장점이 있다.
+- 미세한 동작 필요없이 사용한다면 간편하게 createRef를 사용하는 것이 좋을 수 있다.
