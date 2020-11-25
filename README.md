@@ -497,3 +497,49 @@ array2
 - 기존에 input태그에 ref를 쓰면 함수를 만들어서 사용하곤 했는데, createRef를 호출해서 사용하면 inputRef에 createRef()를 담아서 사용할 수 있다. (더 간편)
 - 기존에 만들어서 사용했던 함수는 console.log를 찍어볼 수 있고 예전 state를 가져올 수 있고, 미세한 작업을 할 수있고  다른 동작을 수행할 수 있는 장점이 있다.
 - 미세한 동작 필요없이 사용한다면 간편하게 createRef를 사용하는 것이 좋을 수 있다.
+
+<br>
+
+- render안에는 setState를 쓰지않도록 유의
+  - render가 실행되면 this.setState가 실행되고 this.setState가 실행되면 render가 실행되기 때문 
+
+<br>
+
+- 1) props는 부모가 바꿔줘야한다.
+- 2) 자식에서 props를 바꿔주어야할 경우, props를 state에 넣어준다.
+
+```javascript
+const Try = memo(({tryInfo}) => {
+  // tryInfo.try = 'hello'; <- 1의 예) 이렇게 사용하지않도록 주의
+  // const [result, setResult] = useState();
+    return(
+       <li>
+           <div>{tryInfo.try}</div>
+           <div>{tryInfo.result}</div>
+       </li>
+    )
+})
+```
+<br>
+
+- 부모로 받은 props를 바꾸고 싶을 때에는 아래처럼 state를 useState로 만든다음에 state로 바꿔줘야한다.
+  - **props는 직접 바꾸지 않고 state를 사용해서 바꾼다 !**
+  - props가 부모에서 자식으로 물려준 것이니, 자식이 props를 바꾸면 부모의 props도 바뀌어야하는데 그럴경우 뜻하지않게 바뀌어버린다. 
+    => 자식은 props를 바꾸지 않는다. 
+    => 바꿔야하는 상황이라면 props를 state로 만들어서 바꾼다.
+
+```javascript
+const Try = memo(({tryInfo}) => {
+  const [result, setResult] = useState(tryInfo.result);
+
+  const onClick() => {
+    setResult('1');
+  }
+    return(
+       <li>
+           <div>{tryInfo.try}</div>
+           <div>{tryInfo.result}</div>
+       </li>
+    )
+})
+```
