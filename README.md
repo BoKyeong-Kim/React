@@ -543,3 +543,34 @@ const Try = memo(({tryInfo}) => {
     )
 })
 ```
+
+<br>
+
+### react 조건문
+- render안에서는 for문이나 if문을 못쓴다.(render의 return안에서 for, if를 못쓰는 것.)
+
+- 아래처럼 삼항연산자로 조건을 줄 수 있다.
+
+```javascript
+ {this.state.result.length === 0
+            ? null
+            : <div>평균시간 : {this.state.result.reduce((a,c) => a+c) / this.state.result.length}ms</div>
+}
+``` 
+
+<br>
+
+- 함수로도 만들 수 있는데 사용자가 정의한 함수는 화살표 함수로 만들어줘야한다.
+
+```javascript
+{
+  renderAverage = () => {
+    const { result } = this.state;
+   return result.result.length === 0
+            ? null
+            : <div>평균시간 : {result.reduce((a,c) => a+c) / result.length}ms</div>
+  };
+  
+
+  {this.renderAverage()}
+}
