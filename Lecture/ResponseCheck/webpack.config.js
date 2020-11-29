@@ -23,8 +23,8 @@ module.exports = {
                 targets: {
                     browsers : ['> 5% in KR', 'last 2 chrome version'], //browserlist
                     },
-                    debug : true
-                }], '@babel/preset-react'
+                    debug : true,
+                },], '@babel/preset-react'
             ],
             plugins: ['@babel/plugin-proposal-class-properties',
                     'react-refresh/babel'

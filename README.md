@@ -502,6 +502,9 @@ array2
 
 - render안에는 setState를 쓰지않도록 유의
   - render가 실행되면 this.setState가 실행되고 this.setState가 실행되면 render가 실행되기 때문 
+- hook방식의 const로 선언한 부분은 값이 바뀌면 다시 랜더링 된다.
+  - 값이 바뀌어도 랜더링 시키고 싶지않다면 useRef에 넣어서 사용하면 된다.
+  - 값이 바뀌지만 화면에 영향을 끼치고싶지 않을때 사용된다.
 
 <br>
 
