@@ -92,3 +92,15 @@ export const commerce = new Commerce();
 
 <div align="center"><img src="./img/product(6).png" width="900px" height="450px" alt="structure"></img></div>
 
+<br>
+
+#### 두번째. Shopping Cart에 product 담기
+- onAddToCart : 카트에 물건을 추가하는 기능
+- product id와 물건의 수량(quantity)을 받아서 넘겨줌
+- product component에 IconButton 태그에 콜백함수로 onAddToCart를 호출하고 두 개의 인자를 넘겨준다.
+    - product.id, 1로 우선 테스트 진행
+- 맨위에 고정된 카트 아이콘의 숫자는 Navbar에서 변경해야함.
+    - totalItems을 추가하여 cart를 클릭할떄마다 +1씩 증가하도록 변경
+    
+<br>
+
