@@ -63,3 +63,24 @@ export const commerce = new Commerce();
 
 
 <br>
+
+### App.js
+- 첫번째. 제품을 가져오는일
+- 제품을 추가하고 싶은 경우 
+    - [위 웹사이트](https://commercejs.com/docs/)에서 추가가 가능하다.
+    - 현재 코드로 작성하는 부분은 다 프론트엔드쪽이고, 백엔드는 API를 사용하여 처리.
+
+<div align="center"><img src="./img/product(2).png" width="900px" height="450px" alt="structure"></img></div>
+
+<div align="center"><img src="./img/product(3).png" width="900px" height="450px" alt="structure"></img></div>
+
+<div align="center"><img src="./img/product(4).png" width="900px" height="450px" alt="structure"></img></div>
+
+
+
+<br>
+
+- setting >> Shipping 에서 Shipping Zones을 추가할 수 있다.
+- 맨처음 console에 log를 찍은것은 아무것도 반환하지 않지만, 페이지로 업로드한 keyboard의 내용은 출력된다.
+
+<div align="center"><img src="./img/product(5).png" width="900px" height="450px" alt="structure"></img></div>
