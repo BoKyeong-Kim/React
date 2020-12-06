@@ -47,3 +47,19 @@ import { Products, NavBar } from './components/';
 
 <br>
 
+### lib/commerce.js
+: 실제 제품을 가져올 수 있는 레이아웃 생성
+- 새로운 인스턴스를 생성해준다.
+- 매개변수를 저장하려면 Public Key를 저장해야한다.
+```
+import Commerce from '@chec/commerce.js';
+
+export const commerce = new Commerce();
+```
+
+- https://commercejs.com/docs/에 계정을 등록하고, 로그인한 뒤 API키를 받는다.
+- Developer >> setttings 
+- .env파일을 만들어 key를 액세스 해준다.
+
+
+<br>
