@@ -12,7 +12,7 @@
 <br>
 
 ### product
-<div align="center"><img src="./img/product(1).png" width="700px" height="450px" alt="structure"></img></div>
+<div align="center"><img src="./img/product(1).png" width="900px" height="450px" alt="structure"></img></div>
 
 <br>
 
@@ -32,3 +32,18 @@ import { Products, NavBar } from './components/';
 ```
 
 <br>
+
+### Navbar
+- Navbar와 Shopping cart 생성
+
+<div align="center"><img src="./img/Navbar(1).png" width="900px" height="450px" alt="structure"></img></div>
+
+
+- 하지만 현재는 Navbar가 product를 가리고 있는 문제가 있음
+    - product의 style 추가
+    - main 태그의 className을 classes.content로 지정
+    - div 태그의 className을 classes.toolbar로 지정
+<div align="center"><img src="./img/Navbar(2).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
