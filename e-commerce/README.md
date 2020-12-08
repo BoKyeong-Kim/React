@@ -101,6 +101,19 @@ export const commerce = new Commerce();
     - product.id, 1로 우선 테스트 진행
 - 맨위에 고정된 카트 아이콘의 숫자는 Navbar에서 변경해야함.
     - totalItems을 추가하여 cart를 클릭할떄마다 +1씩 증가하도록 변경
-    
+
 <br>
+
+### Cart component
+- 맨처음에 container tag를 사용하는 이유는 패딩간격이 주어져있어서 div대신 사용
+- 장바구니가 비어있는지 아닌지 논리를 파악하는 과정 (isEmpty)
+    - cart의 line_items의 길이로 논리화
+- EmptyCart : 카트에 항목이 없을 경우, typography로 항목이 없다는것을 나타냄
+- FilledCart : 카트에 항목이 있을 경우, 장바구니를 렌더링 해주어야함(Grid형식)
+- app.js를 통해서 cart로 항목을 전달해줘야한다.
+- 라우터를 통해 product와 cart 사이를 이동할 예정.(app.js에 product 잠시 주석처리)
+- line_items가 비어있을때의 조건을 주어야함
+    - 그렇지않으면 TypeError: Cannot read property 'length' of undefined 발생
+
+<div align="center"><img src="./img/cart(1).png" width="900px" height="450px" alt="structure"></img></div>
 
