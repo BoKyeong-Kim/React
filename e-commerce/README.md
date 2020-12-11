@@ -157,3 +157,28 @@ export const commerce = new Commerce();
 - Navbar 구성요소를 가져옴 -> import Link 
 - `<Link to='cart'>go to cart</Link>`로 변경이 가능한데 @material-ui를 이용하여 `<IconButton component={Link} to='cart'>`로 코드작성.
 - home에 있을때만 cart icon을 보여줄 수 있도록 Navbar수정 (&&)
+
+<br>
+
+### handleUpdateCartQty, handleRemoveFromUpdate, handleEmptyCart
+- 카드 수량은 비동기와 같은 수량
+- API 호출에 대한 응답을 받은 다음 productId에 대해 수량을 update
+    - response를 사용하지않고 { cart }로 처리가능 -> (response.cart가 아니라 cart로 사용가능해짐) 
+- cart.jsx로 돌아가 empty버튼을 클릭했을때 handleEmptyCart 적용
+- cartItem에 onUpdateCartQty, onRemoveFromCart 적용 
+- -, + button에 onClick의 콜백함수로 업데이트시 item의 id와 새로운 수량(quantity -1, +1)을 전달
+
+<br>
+
+- 아래처럼 cart에서는 cart icon이 사라졌고, -버튼과 +버튼, remove 버튼이 적용된다.
+<div align="center"><img src="./img/Route(3).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+- empty 버튼 적용시
+<div align="center"><img src="./img/Route(4).png" width="900px" height="450px" alt="structure"></img></div>
+
+
+=> 여기까지 프로젝트 앞부분, 이제 결제(check out)기능 구현 예정
+
+<br>
