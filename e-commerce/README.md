@@ -8,6 +8,7 @@
 - `npm install @material-ui/core @material-ui/icons @chec/commerce.js`
 - `npm install @stripe/react-stripe-js @stripe/stripe-js react-router-dom react-hook-form`
 - src폴더에 파일들을 지워준다.
+- [material-ui](https://material-ui.com/components/)
 
 <br>
 
@@ -180,5 +181,19 @@ export const commerce = new Commerce();
 
 
 => 여기까지 프로젝트 앞부분, 이제 결제(check out)기능 구현 예정
+
+<br>
+
+### checkout
+- cart에서 시작
+    - Checkout 버튼에 Link를 연결해주고 /checkout path 작성
+- app.js에서 Route생성 -> checkout 구성요소 
+- Stepper : 단계를 이동할때 구성요소
+    - steps이라는 단계의 배열을 만들어주고 반복문을 통해 매핑
+        - 배송지 주소
+        - 결제 세부정보 
+
+- cart에서 checkout button 클릭시,
+<div align="center"><img src="./img/checkout(1).png" width="900px" height="450px" alt="structure"></img></div>
 
 <br>
