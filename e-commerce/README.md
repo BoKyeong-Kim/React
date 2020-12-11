@@ -70,9 +70,15 @@ export const commerce = new Commerce();
     - [위 웹사이트](https://commercejs.com/docs/)에서 추가가 가능하다.
     - 현재 코드로 작성하는 부분은 다 프론트엔드쪽이고, 백엔드는 API를 사용하여 처리.
 
+<br>
+
 <div align="center"><img src="./img/product(2).png" width="900px" height="450px" alt="structure"></img></div>
 
+<br>
+
 <div align="center"><img src="./img/product(3).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
 
 <div align="center"><img src="./img/product(4).png" width="900px" height="450px" alt="structure"></img></div>
 
@@ -116,4 +122,31 @@ export const commerce = new Commerce();
     - 그렇지않으면 TypeError: Cannot read property 'length' of undefined 발생
 
 <div align="center"><img src="./img/cart(1).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+### CartItem component
+- 장바구니 세부항목
+
+<br>
+
+#### 반응 라우터 구현
+- 대부분 app.js의 구성요소에 있음
+- app.js에 BrowserRouter, Switch, Route 추가
+- return 값을 Router로 감싸주어 navbar를 항상 표시되도록 해준다. 
+- Switch를 사용하여 product와 cart 사이를 전환해준다.
+    - Switch안에 Route를 사용하여 경로를 지정(home(/), cart)
+
+<br>
+
+- localhost:3000
+
+<div align="center"><img src="./img/Route(1).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+- localhost:3000/cart
+
+<div align="center"><img src="./img/Route(2).png" width="900px" height="450px" alt="structure"></img></div>
+
 
