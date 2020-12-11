@@ -136,6 +136,7 @@ export const commerce = new Commerce();
 - return 값을 Router로 감싸주어 navbar를 항상 표시되도록 해준다. 
 - Switch를 사용하여 product와 cart 사이를 전환해준다.
     - Switch안에 Route를 사용하여 경로를 지정(home(/), cart)
+    - 아래의 사진처럼 URL을 변경하면 화면이 다르게 나타난다.
 
 <br>
 
@@ -150,3 +151,9 @@ export const commerce = new Commerce();
 <div align="center"><img src="./img/Route(2).png" width="900px" height="450px" alt="structure"></img></div>
 
 
+<br>
+
+### URL을 변경하지않고 우측상단 cart icon을 클릭하여 사용자가 페이지를 이동할 수 있도록 변경
+- Navbar 구성요소를 가져옴 -> import Link 
+- `<Link to='cart'>go to cart</Link>`로 변경이 가능한데 @material-ui를 이용하여 `<IconButton component={Link} to='cart'>`로 코드작성.
+- home에 있을때만 cart icon을 보여줄 수 있도록 Navbar수정 (&&)
