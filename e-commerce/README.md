@@ -192,7 +192,9 @@ export const commerce = new Commerce();
     - steps이라는 단계의 배열을 만들어주고 반복문을 통해 매핑
         - 배송지 주소
         - 결제 세부정보 
-
+- Paper의 elevation는 고도를 나타냄.
+    - 0에 가까울수록 표시가 덜되고 0에서 멀어질수록 진해짐.
+    - [codesandbox-demo](https://codesandbox.io/s/q78hq?file=/demo.js:479-498)
 - cart에서 checkout button 클릭시,
 <div align="center"><img src="./img/checkout(1).png" width="900px" height="450px" alt="structure"></img></div>
 
