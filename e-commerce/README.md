@@ -199,3 +199,29 @@ export const commerce = new Commerce();
 <div align="center"><img src="./img/checkout(1).png" width="900px" height="450px" alt="structure"></img></div>
 
 <br>
+
+- 두개의 다른 구성요소 렌더링
+    - 배송지 주소
+    - 결제 세부정보
+- activeStep이 0이면 AddressForm, 그렇지않으면 PaymentForm 활성화
+    - 지불양식 단계가 변경되고 Confirmation양식 표시 -> 올바르게 했을때 확인받도록
+    - 확인하지 않으면 Form을 보여줌
+    - steps.length로 activeStep 논리 실행
+- 임시로 useState()를 변경하여 잘적용되는지 테스트
+
+<br>
+
+- useState(0)일때
+<div align="center"><img src="./img/useState(1).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+- useState(1)일때
+<div align="center"><img src="./img/useState(2).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+- useState(2)일때
+<div align="center"><img src="./img/useState(3).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
