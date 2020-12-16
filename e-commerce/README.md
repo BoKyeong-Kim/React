@@ -225,3 +225,19 @@ export const commerce = new Commerce();
 <div align="center"><img src="./img/useState(3).png" width="900px" height="450px" alt="structure"></img></div>
 
 <br>
+    
+#### AddressForm : 배송지 주소
+- 주소 양식엔 다양한 필드가 존재(주소, 이메일, 도시, 우편번호, 국가 등)
+- [react-hook-form](https://react-hook-form.com/) 사용
+- react-hook과 material-ui연결 -> 체크아웃 양식을 사용자 지정텍스트(CustomerTextField)로 하기위해 내부에 하나이상의 구성요소를 만듦
+- CustomerTextField에서 name, label, required를 받아서 처리
+    - 입력또는 텍스트필드들이 컨트롤러를 사용하여 제어가능(Controller)
+- FormInput을 import하여 간편하게 필수적안것과 그값에 대한 name, label을 구성해준다.
+
+<br>
+
+- 주의 
+    - CustomerTextField에서 control을 선언할때 const control이 아니라 const { control }로 하지않으면 Type 에러발생
+    - TypeError: Cannot read property 'isReValidateOnBlur' of undefined
+
+<div align="center"><img src="./img/checkout(2).png" width="900px" height="450px" alt="structure"></img></div>
