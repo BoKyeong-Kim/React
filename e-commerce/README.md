@@ -240,4 +240,25 @@ export const commerce = new Commerce();
     - CustomerTextField에서 control을 선언할때 const control이 아니라 const { control }로 하지않으면 Type 에러발생
     - TypeError: Cannot read property 'isReValidateOnBlur' of undefined
 
+```javascript
+import { useFormContext } from 'react-hook-form';
+
+const context = useFormContext(); 
+ <Controller control={context.control} />
+
+ -- 구조분해 사용
+ const { control } = useFormContext();
+<Controller control={control} />
+```
+
 <div align="center"><img src="./img/checkout(2).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+- 배송지역 -> 하위부문으로 나뉘어짐
+    - Shipping Country : 배송지 
+    - Shipping Subdivision : 운송부서
+    - Shipping Options : 배송 옵션
+- 국가가 변경될때마다 세가지 필드가 모두 변경된다.
+    - useState로 6개의 상태 생성
+        - 배송지, 운송부서, 배송옵션을 단수와 복수개로 만들어줌
