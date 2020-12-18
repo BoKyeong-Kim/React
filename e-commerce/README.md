@@ -262,3 +262,48 @@ const context = useFormContext();
 - 국가가 변경될때마다 세가지 필드가 모두 변경된다.
     - useState로 6개의 상태 생성
         - 배송지, 운송부서, 배송옵션을 단수와 복수개로 만들어줌
+- API 항목을 사용하여 실제로 사용가능한 모든 국가를 가져와 세분화 후, 모든 배송 옵션을 가져옴
+- 배송국가와 세분화 및 옵션은 commerce.js 대시보드에서 직접 설정
+- lib/commerce에서 commerce 인스턴스를 import 해줌으로써 모든 기능을 사용할 수 있음
+
+<br>
+
+- checkout token log 출력
+<div align="center"><img src="./img/checkout(3).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+---
+
+### 배송기능구현
+- fetchShippingCountries : 나라를 가져오는 기능
+    - 비동기 함수로 구현
+    - 주문 프로세스에 들어오면 자신의 checkoutTokenId을 만들어 배송국가를 가져오도록 전달
+    - API사용(response) -> 구조를 해체하여 countries만 가져옴
+- checkout의 Form에 적용시켜야함(checkout.jsx)
+    - useState, useEffect를 사용하여 checkoutToken을 생성
+    - useEffect 인자에 빈배열을 넣어주어 처음에만 발생하도록 해줌(나중에 cart가 변경되면 변경해줄것)
+- useEffect : 결제 절차를 시작하면 체크아웃 토큰을 생성
+    - 비동기가 될 새로운 함수 생성 필요(generate token)
+    - try ~ catch 구문 사용(토큰생성여부에 따라 결과값 다르도록)
+    - 여기서도 lib/commerce에서 commerce 인스턴스를 import((checkout.jsx)
+    - try에 token생성 : 토큰 생성 및 전달해야할 사항(cart.id, {type : 'cart'}) -> type부분에서 객체를 전달하는데 token을 생성할 cart 문자열을 전달
+        - cartId를 얻어오기 위해서는 App.js에서 <Checkout cart={cart}>로 변경해주어야함.
+    - token에 대한 새로운 상태필드 생성
+
+<br>
+
+- Form 내 AddressForm에 checkoutToken을 불러옴(checkout.jsx)
+- checkoutToken을 호출(AddressForm.jsx)
+- AddressForm이 렌더링 되자마자 즉시 국가를 가져오고 싶음
+    - useEffect를 사용하여 렌더링할때 즉시 실행되도록 함.
+        - fetchShippingCountries 호출(checkoutToken.id)
+        - 위 상황에서는 에러 발생(TypeError: Cannot read property 'id' of null)
+    - checkout.jsx에서 useEffect의 빈배열에 cart를 넣어줘야함
+    - cart가 동적으로 적용되므로 cart가 변경되자마자 또 다른 token을 회수해야함
+- checkoutToken && <Form /> : 체크아웃 토큰을 확인하고 양식 종료(checkout.jsx)
+
+<br>
+
+- 배송가능한 지역으로 설정했던 국가들 log에 기록
+<div align="center"><img src="./img/checkout(4).png" width="900px" height="450px" alt="structure"></img></div>
