@@ -307,3 +307,27 @@ const context = useFormContext();
 
 - 배송가능한 지역으로 설정했던 국가들 log에 기록
 <div align="center"><img src="./img/checkout(4).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+- setShippingCountries : 배송 국가 설정
+- setShippingCountry : 개별 국가 설정
+    - object에서의 key를 가져오도록(위 사진에서 CA, KR, US), 첫번쨰 배열을 가져오도록 해야함.
+- Shipping Country를 보여주는 부분에서 value를 setShippingCountry로 주고 onChange에서 event를 받고 배송국가를 설정
+- countries는 배열이 아니므로 map을 사용할 수 없음
+    - Object.entries()는 key와 value를 제공(shippingCountries)
+
+<br>
+
+- Object.entries(shippingCountries)의 log
+- 배열의 배열로 구성되어있고, 각 배열에는 각 특정 국가와 키와 값이 포함되어있음
+- 위 항목에 map함수로 code와 name을 요소로 줌
+    - 새로운 형식(객체)으로 반환
+    - code와 같도록 id를 지정
+<div align="center"><img src="./img/checkout(5).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+- id와 label 분리
+<div align="center"><img src="./img/checkout(6).png" width="900px" height="450px" alt="structure"></img></div>
+
