@@ -331,3 +331,10 @@ const context = useFormContext();
 - id와 label 분리
 <div align="center"><img src="./img/checkout(6).png" width="900px" height="450px" alt="structure"></img></div>
 
+<br>
+
+- shipping country의 목록들이 나오면서 선택이 가능해짐
+<div align="center"><img src="./img/checkout(7).png" width="900px" height="450px" alt="structure"></img></div>
+
+
+-----
