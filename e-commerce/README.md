@@ -286,7 +286,7 @@ const context = useFormContext();
 - useEffect : 결제 절차를 시작하면 체크아웃 토큰을 생성
     - 비동기가 될 새로운 함수 생성 필요(generate token)
     - try ~ catch 구문 사용(토큰생성여부에 따라 결과값 다르도록)
-    - 여기서도 lib/commerce에서 commerce 인스턴스를 import((checkout.jsx)
+    - 여기서도 lib/commerce에서 commerce 인스턴스를 import(checkout.jsx)
     - try에 token생성 : 토큰 생성 및 전달해야할 사항(cart.id, {type : 'cart'}) -> type부분에서 객체를 전달하는데 token을 생성할 cart 문자열을 전달
         - cartId를 얻어오기 위해서는 App.js에서 <Checkout cart={cart}>로 변경해주어야함.
     - token에 대한 새로운 상태필드 생성
@@ -338,3 +338,20 @@ const context = useFormContext();
 
 
 -----
+
+- fetchSubdivisions : countrycode를 매개변수로 하위 목록들을 가져옴
+    - response에서 subdivisions로 구조분해
+    - setShippingSubdivision에서 객체를 세분화하여 key를 얻음
+- useEffect를 새롭게 구성
+    - 두가지 다른 useEffect를 사용
+    - 배열에 shippingCountry를 주어 배송지역이 변경될때마다 fetchSubdivisions 호출
+    - if로 조건을 주어 배송국가가 존재하는 경우에만 동작할 수 있도록 함
+- countries와 같이 map함수로 code와 name을 요소로 줌
+- Shipping Country을 가져온 뒤, 배송국가가 변경된 후에만 Shipping Subdivision에서 세분화를 가져올 수 있음
+
+<br>
+
+- shipping Subdivision 목록들이 나오면서 하위목록 선택이 가능해짐
+<div align="center"><img src="./img/checkout(8).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
