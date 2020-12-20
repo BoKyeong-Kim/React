@@ -376,3 +376,15 @@ const context = useFormContext();
 <div align="center"><img src="./img/checkout(10).png" width="900px" height="450px" alt="structure"></img></div>
 
 <br>
+
+- 배송옵션 반복
+    - options mapping
+    - 병합하려는 각 옵션에 대해 국내 배송이름과 특정 배송에 대한 가격을 보여줌
+- setShippingOptions에 대해 sO로 받아 대해 id과 label를 분리하여 보여줌
+
+<br>
+
+- 배송옵션과 같은것들은 사용자 선택옵션이기 때문에 required을 true로 만들어줌 (CustomerTextField.jsx)
+
+- 지역에 따라 배송비가 자동으로 변경
+<div align="center"><img src="./img/checkout(11).png" width="900px" height="450px" alt="structure"></img></div>
