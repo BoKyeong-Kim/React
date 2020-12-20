@@ -355,3 +355,24 @@ const context = useFormContext();
 <div align="center"><img src="./img/checkout(8).png" width="900px" height="450px" alt="structure"></img></div>
 
 <br>
+
+- fetchShippingOptions : 배송옵션 -> 국내/해외배송
+    - checkoutTokenId와 country, region을 매개변수로 받음(region은 null로 구성)
+    - getShippingOptions에 checkoutTokenId를 전달하고 개체를 지정(country, region)
+    - 선언해둔 setShippingOption함수에 options의 0번째 배열의 id를 전달(options[0].id)
+- useEffect 새롭게 구성 -> 배송세부항목(shippingSubdivision)이 변경되면 호출
+    - 끝에 s가 없는 단일배송 세분화
+- 상단에 options 선언 -> 개체항목을 수행하지 않고 shippingOptions내의 값을 반복
+    - option은 기본적으로 배열
+
+<br>
+
+- setShippingOptions log - array에 전체 포함
+<div align="center"><img src="./img/checkout(9).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+- US로 설정했을때 - array에 하나만 포함
+<div align="center"><img src="./img/checkout(10).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
