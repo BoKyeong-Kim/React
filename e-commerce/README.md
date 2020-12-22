@@ -282,7 +282,7 @@ const context = useFormContext();
     - API사용(response) -> 구조를 해체하여 countries만 가져옴
 - checkout의 Form에 적용시켜야함(checkout.jsx)
     - useState, useEffect를 사용하여 checkoutToken을 생성
-    - useEffect 인자에 빈배열을 넣어주어 처음에만 발생하도록 해줌(나중에 cart가 변경되면 변경해줄것)
+    - useEffect 인자에 빈배열을 넣어주어 처음에만 발생하도록 해줌(나중에 cart가 변경되면 변경해줄것)
 - useEffect : 결제 절차를 시작하면 체크아웃 토큰을 생성
     - 비동기가 될 새로운 함수 생성 필요(generate token)
     - try ~ catch 구문 사용(토큰생성여부에 따라 결과값 다르도록)
@@ -388,3 +388,27 @@ const context = useFormContext();
 
 - 지역에 따라 배송비가 자동으로 변경
 <div align="center"><img src="./img/checkout(11).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+- Grid 외부에 버튼을 2개 만들어준다.
+    - cart로 다시 돌아가는 기능(Back to Cart) - Link를 사용하여 cart로 돌아감
+    - 다음으로 넘어가는 기능(Next) - submit type으로 지정
+- 실행을 하면 cart로 돌아가는 기능은 정상작동, next 버튼이 아직 작동하지않음
+    - form에 onSubmit를 사용 - 모든 필드에 대한 데이터를 채우기 위하여 콜백함수로 구성
+    - checkout에 next에 대한 함수를 생성    
+- next function 
+    - 배송데이터(shippingData)를 빈 객체({})로 정의
+- nextStep : setActiveStep에 콜백함수로 이전 상태(preActiveStep)에 1을 더해줌
+- backStep : setActiveStep에 콜백함수로 이전 상태(preActiveStep)에 1을 빼줌
+- 선언해준 Form에 인자값으로 설정해준다.(next={next})
+- AddressForm에 가서 next를 받아올 수 있도록 작성
+- onSubmit에 적용 -> next에 { ...data }로 data를 스프레드 시켜줌(FormInput 데이터를 객체에 분산)
+    - data를 그냥 보내는게 아니라 {...data}로 보내주는 이유는 데이터의 속성을 전파하기 위해서이다.
+    - 그런 다음 shippingCountry, shippingCountry, shippingCountry도 추가해준다.
+    - next 함수를 호출하여 필요한 모든 데이터를 전달
+- checkout으로 돌아가 PaymentForm에 shippingData를 추가해준다.
+
+--------
+
+### PaymentForm 
