@@ -421,3 +421,20 @@ const context = useFormContext();
 - 제품의 수량과 가격이 등록된 화면을 구성
 
 <div align="center"><img src="./img/checkout(12).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+- stripe로 결제화면 구성(payment form)
+    - divider로 구분선을 표현
+    - Element에서 stripe를 stripePromise로 받음
+    - stripePromise에 대해 loadStripe함수에서 key를 받음
+    - ElementsConsumer 내에 콜백함수 생성(elements, stripe)
+    - back과 pay 버튼을 두개 구성
+    - checkoutform에 payment 내에 backStep 추가
+- stripe 적용 후 신용카드 세부정보를 입력할 수 있음
+<div align="center"><img src="./img/checkout(13).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+
+
