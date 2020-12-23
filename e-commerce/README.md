@@ -411,4 +411,13 @@ const context = useFormContext();
 
 --------
 
-### PaymentForm 
+### PaymentForm : 결제 양식
+- 결제 양식에서는 [stripe/react-stripe-js](https://stripe.com/docs/stripe-js/react)와 [stripe/stripe-js](https://stripe.com/docs/stripe-js)를 사용
+- Review component 생성
+- checkout에 있는 token 사용 -> 위에 정의한 checkoutToken을 PaymentForm 내부에 전달
+- Review에도 checkoutToken 전달
+    - List에 product를 ListItem으로 나열
+    - 내부에 style 지정(상단과 하단에 10px, 좌우 0px)
+- 제품의 수량과 가격이 등록된 화면을 구성
+
+<div align="center"><img src="./img/checkout(12).png" width="900px" height="450px" alt="structure"></img></div>
