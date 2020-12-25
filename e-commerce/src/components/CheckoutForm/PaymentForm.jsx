@@ -5,9 +5,11 @@ import { loadStripe } from '@stripe/stripe-js';
 
 import Review from './Review';
 
-const stripePromise = loadStripe('...');
+const stripePromise = loadStripe(precess.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const PaymentForm = ({ checkoutToken, backStep }) => {
+
+
     return (
         <>
             <Review checkoutToken={checkoutToken}/>

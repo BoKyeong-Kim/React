@@ -436,5 +436,7 @@ const context = useFormContext();
 
 <br>
 
-
-
+- stripe.com에서 public key 발급
+    - 가입하고 이메일 인증받은 뒤, 좌측에 Developers >>  API Keys에서 Publishable key copy
+    - .env 파일에 key 작성
+- loadStripe에 (precess.env.REACT_APP_STRIPE_PUBLIC_KEY) 작성
