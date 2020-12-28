@@ -440,3 +440,31 @@ const context = useFormContext();
     - 가입하고 이메일 인증받은 뒤, 좌측에 Developers >>  API Keys에서 Publishable key copy
     - .env 파일에 key 작성
 - loadStripe에 (precess.env.REACT_APP_STRIPE_PUBLIC_KEY) 작성
+- PaymentForm 내에 handleSubmit 함수 생성 : 주문을 완료할 함수
+    - form 내에 event를 받아 함수를 호출하고 매개변수 3개를 받는다.
+    - event(클릭 또는 전체 양식의 이벤트), elements, stripe
+    - 클릭 후 웹사이트가 새로고침되지않도록 preventDefault 추가
+    - stripe나 element가 없다면 return 되도록 조건설정
+- stripe에서 import한 CardElement를 getElement로 받아온다.
+- error와 paymentMethod를 stripe.createPaymentMethod에서 type과 card를 지정
+    - error 발생시 log 출력
+    - error가 없다면 모든것을 포함하는 하나의 최종 변수를 만들어 저장(orderData)
+        - 장바구니에 있는 모든 항목이 포함된 데이터(line_items)
+        - 고객 데이터(customer)
+        - 모든 주소의 세부사항(shipping) : 국내의 경우 거리와 배송비가 같도록 설정
+        - 배송옵션이 포함된 모든 배송 세부정보(fulillment) : 옵션을 선택하면 결제에서 모든 배송데이터를 가져옴
+        - 지불정보(payment)
+- commerce API는 app.js에서 호출되므로 내부에 함수를 생성
+    - handleCaptureCheckout : 체크아웃을 수락하는 비동기함수(checkoutTokenId와 newOrder 받아옴)
+    - try ~ catch로 error 발생시 처리
+    - capture로 checkoutTokenId와 newOrder를 받아 incomingOrder로 들어오는 주문 처리
+    - State로 처리하기위해 상단에 useState로 분해한 order, setOrder 생성(빈 객체로 초기화 {})
+    - 들어오는 주문을 상태로 설정하기위해 setOrder에 incomingOrder를 전달해주어 주문생성
+- refreshCart function 생성 : 주문이 완료되면 카트를 새로고침 해야함
+    - setOrder를 받아온 뒤에 refreshCart 실행
+- error 발생시 message를 반환해주기위해 errorMessage에 대한 state 생성
+- app.js reture할 checkout에 order, onCaptureCheckout, error 추가
+    - checkout.jsx에서 파라미터도 추가해야함(일부는 payment로도 전달필요 - onCaptureCheckout)
+    - payment에 onCaptureCheckout 추가 후 nextStep으로 넘어간다.(checkout에도 파라미터 추가)
+
+<br>
