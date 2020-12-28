@@ -439,7 +439,7 @@ const context = useFormContext();
 - stripe.com에서 public key 발급
     - 가입하고 이메일 인증받은 뒤, 좌측에 Developers >>  API Keys에서 Publishable key copy
     - .env 파일에 key 작성
-- loadStripe에 (precess.env.REACT_APP_STRIPE_PUBLIC_KEY) 작성
+- loadStripe에 (process.env.REACT_APP_STRIPE_PUBLIC_KEY) 작성
 - PaymentForm 내에 handleSubmit 함수 생성 : 주문을 완료할 함수
     - form 내에 event를 받아 함수를 호출하고 매개변수 3개를 받는다.
     - event(클릭 또는 전체 양식의 이벤트), elements, stripe
@@ -466,5 +466,21 @@ const context = useFormContext();
 - app.js reture할 checkout에 order, onCaptureCheckout, error 추가
     - checkout.jsx에서 파라미터도 추가해야함(일부는 payment로도 전달필요 - onCaptureCheckout)
     - payment에 onCaptureCheckout 추가 후 nextStep으로 넘어간다.(checkout에도 파라미터 추가)
+
+<br>
+
+신용카드 정보 입력 
+
+- [dashboard.chec.io](https://dashboard.chec.io/settings/payment) >> Setup >> Payment Gateways
+- [dashboard.stripe.com](https://dashboard.stripe.com/test/apikeys)에서 Publishable key와 Secret key를 받아서 enable stripe. 
+
+<div align="center"><img src="./img/stripe(1).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+- Setup / Developer에 들어가서 기존에 .env에 REACT_APP_CHEC_PUBLIC_KEY로 주었던 key를 Sandbox Public Key로 변경해준다.
+
+- checkout next >> payment >> Confirmation
+<div align="center"><img src="./img/stripe(2).png" width="900px" height="450px" alt="structure"></img></div>
 
 <br>
