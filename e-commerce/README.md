@@ -484,3 +484,14 @@ const context = useFormContext();
 <div align="center"><img src="./img/stripe(2).png" width="900px" height="450px" alt="structure"></img></div>
 
 <br>
+
+- Confirmation 구성
+    - Typography로 구매 감사인사와 사용자의 이름을 보여줄 예정
+    - Order ref를 보여줌
+    - home으로 돌아갈 수 있는 button 구성 (Link이용 - import)
+    - order.customer이 true일때만 보여줌
+    - 주문을 완료하지 않아 주문 받는데에 시간이 걸리기 때문에 spinner사용
+- const에서 let으로 변경
+    - error 발생시 error를 보여주도록 조건문 작성
+- useEffect에 catch 부분 error 발생시 log출력
+- CustomerTextField의 controller에 defaultValue 추가 
