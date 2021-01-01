@@ -495,3 +495,34 @@ const context = useFormContext();
     - error 발생시 error를 보여주도록 조건문 작성
 - useEffect에 catch 부분 error 발생시 log출력
 - CustomerTextField의 controller에 defaultValue 추가 
+
+<br>
+
+- 전체 결제에 대한 테스트 수행
+- spinner 적용된 화면
+
+<div align="center"><img src="./img/spinner.png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+- CssBaseline 추가
+    - @material-ui로 보여줬을 때 모바일에서는 짤리는 현상이 발생
+- checkout을 완료한 후 페이지를 새로고침하면 더이상 cart 없어서 문제가 발생
+    - error 발생시 log를 보여주는 것에서 history를 남기는것으로 변경(import useHistory)
+    - 오류는 대부분 실제 주문시 발생
+    - 페이지를 새로고침하면 commerce.js를 생성할 수 없음
+- 현재 신용카드가 없고 거래가 불가능한 경우에 대해 처리해야함
+- timeout function 생성
+- state 생성 - isFinished, setIsFinished(초기값은 false로 지정)
+
+<div align="center"><img src="./img/checkout(14).png" width="900px" height="450px" alt="structure"></img></div>
+
+<br>
+
+### 배포
+- `npm run bulid`를 통해 빌드파일을 생성해준다.
+- [netlify](https://www.netlify.com/)에서 배포
+
+<br>
+
+> E-commerce clone coding 완료!
