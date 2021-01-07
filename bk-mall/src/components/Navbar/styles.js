@@ -11,10 +11,21 @@ export default makeStyles((theme)=> ({
             marginLeft: drawerWidth,
         },
     },
+    title : {
+        flexGrow: 1,
+        alignItems: 'center',
+        display: 'flex',
+        textDecoration: 'none',
+    },
     grow: {
         flexGrow: 1,
     },
     menuButton: {
         marginRight: theme.spacing(2)
-    }
+    },
+    image : {
+        marginLeft : '10px',
+        marginRight: '10px',
+    },
+   
 }))
