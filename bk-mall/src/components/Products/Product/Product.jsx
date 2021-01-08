@@ -6,6 +6,8 @@ import useStyles from './styles'
 const Product = ({product}) => {
     const classes = useStyles();
 
+    console.log(product);
+    
     return(
         <Card className={classes.root}>
             <CardMedia className={classes.media} title={product.name} />
@@ -15,10 +17,10 @@ const Product = ({product}) => {
                         {product.name}
                     </Typography>
                     <Typography variant="h5" color="textSecondary" gutterBottom>
-                        {product.price}
+                        {product.price.formatted_with_symbol}
                     </Typography>
                 </div>
-                <Typography variant="body2" color="textSecondary"/>
+                <Typography variant="body2" dangerouslySetInnerHTML={{__html: product.description}} color="textSecondary" />
             </CardContent>
             <CardActions disableSpacing className={classes.cardActions}>
                 <IconButton aria-label="Add to Cart">
@@ -27,6 +29,7 @@ const Product = ({product}) => {
             </CardActions>
         </Card>
     )
+
 }
 
 export default Product;
