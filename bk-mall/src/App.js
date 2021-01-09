@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce';
-import { Products, Navbar } from './components/';
+import { Products, Navbar, Cart } from './components/';
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -18,7 +18,8 @@ const App = () => {
     return(
         <div>
             <Navbar />
-            <Products products={products}/>
+            {/*/<Products products={products}/>*/}
+            <Cart />
         </div>
     )
 }
