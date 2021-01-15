@@ -15,7 +15,7 @@ const Product = ({ product, onAddToCart }) => {
                         {product.name}
                     </Typography>
                     <Typography variant="h5" color="textSecondary" gutterBottom>
-                        {product.price.formatted_with_symbol}
+                        {product.price.formatted_with_code}
                     </Typography>
                 </div>
                 <Typography variant="body2" dangerouslySetInnerHTML={{__html: product.description}} color="textSecondary" />
