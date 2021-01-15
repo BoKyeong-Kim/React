@@ -1,12 +1,14 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Badge } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
+import { Link, useLocation } from 'react-router-dom';
 
 import logo from '../../assets/rocketlogo.png'
 import useStyles from './styles';
 
 const Navbar = ({ totalItems }) => { 
     const classes = useStyles();
+    const location = useLocation();
     
     return (
         <>
@@ -17,13 +19,14 @@ const Navbar = ({ totalItems }) => {
                         BK-mall
                     </Typography>
                     <div className={classes.grow} />
+                    {location.pathname === "/" && (
                         <div className={classes.button}>
-                        <IconButton aria-label="cart" className={classes.menuButton}  color="inherit">
+                        <IconButton component={ Link } to="cart" aria-label="Show cart items" className={classes.menuButton}  color="inherit">
                             <Badge badgeContent={totalItems} color="secondary">
                                 <ShoppingCart />
                             </Badge>
                         </IconButton>
-                    </div>
+                    </div>)}
                 </Toolbar>
             </AppBar>
         </>
