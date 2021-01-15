@@ -25,10 +25,10 @@ const Cart = ({ cart }) => {
                 ))}
             </Grid>
             <div className={classes.cardDetails}>
-                <Typography></Typography>
+                <Typography variant="h4">Subtotal : {cart.subtotal.formatted_with_code}</Typography>
                 <div>
                     <Button className={classes.emptyButton} color="secondary" size="large" type="button" variant="contained">Empty Button</Button>
-                    <Button className={classes.checkoutButton} color="primary" size="large" type="button" variant="contained">Checkout</Button>
+                    <Button component={Link} to="checkout" className={classes.checkoutButton} color="primary" size="large" type="button" variant="contained">Checkout</Button>
                 </div>
             </div>
         </>
