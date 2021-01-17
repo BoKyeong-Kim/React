@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 import useStyles from './styles';
 import CartItem from './CartItem/CartItem';
 
-const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromUpdate }) => {
+const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromUpdate, handleEmptyCart }) => {
     const classes = useStyles();
 
     const EmptyCart = () => (
         <Typography variant="subtitle1">
             You have no items in your shopping cart
-            <Link to="/" className={classes.link}>start adding some</Link>
+            <Link to="/" className={classes.link}> start adding some</Link>
         </Typography>
    );
 
@@ -27,7 +27,7 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromUpdate }) => {
             <div className={classes.cardDetails}>
                 <Typography variant="h4">Subtotal : {cart.subtotal.formatted_with_code}</Typography>
                 <div>
-                    <Button className={classes.emptyButton} color="secondary" size="large" type="button" variant="contained">Empty Button</Button>
+                    <Button className={classes.emptyButton} color="secondary" size="large" type="button" variant="contained" onClick={handleEmptyCart}>Empty Button</Button>
                     <Button component={Link} to="checkout" className={classes.checkoutButton} color="primary" size="large" type="button" variant="contained">Checkout</Button>
                 </div>
             </div>

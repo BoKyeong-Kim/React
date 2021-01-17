@@ -35,6 +35,12 @@ const App = () => {
         setCart(cart);
     }
 
+    const handleEmptyCart = async () => {
+        const { cart } = await commerce.cart.empty();
+
+        setCart(cart);
+    }
+
     useEffect(() => {
         fetchProducts();
         fetchCart();
@@ -55,6 +61,7 @@ const App = () => {
                             cart={cart} 
                             handleUpdateCartQty={handleUpdateCartQty} 
                             handleRemoveFromUpdate={handleRemoveFromUpdate}
+                            handleEmptyCart={handleEmptyCart}
                         />
                     </Route>
                 </Switch>
