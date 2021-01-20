@@ -19,6 +19,7 @@ export default makeStyles((theme) => ({
     },
     link: {
         textDecoration:'none',
+        marginTop : '20px'
     },
     cardDetails: {
         display: 'flex',
@@ -26,4 +27,7 @@ export default makeStyles((theme) => ({
         width: '100%',
         justifyContent: 'space-between',
     },
+    space: {
+        marginTop: '13%',
+    }
 }))

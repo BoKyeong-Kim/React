@@ -4,15 +4,33 @@ import { Link } from 'react-router-dom';
 
 import useStyles from './styles';
 import CartItem from './CartItem/CartItem';
+import RecItem from './RecItem/RecItem';
 
-const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromUpdate, handleEmptyCart }) => {
+const Cart = ({ products, cart, handleUpdateCartQty, handleRemoveFromUpdate, handleEmptyCart }) => {
     const classes = useStyles();
+    const product = products.sort(() => Math.random() - Math.random())
+                    .find(() => true);
 
     const EmptyCart = () => (
+        <>
         <Typography variant="subtitle1">
-            You have no items in your shopping cart
-            <Link to="/" className={classes.link}> start adding some</Link>
+            <div>
+                You have no items in your shopping cart
+            </div>
+            <Button component={Link} to="/" className={classes.link} type="button" color="primary" variant="contained"> start adding some</Button>
         </Typography>
+        <div className={classes.space}/>
+        <Typography variant="h4" >
+            <div>이런 상품은 어떠신가요?</div>
+        </Typography>
+        <Grid container spacing={4}>
+            {product && products.map((product)=> (
+                <Grid item key={products.id} xs={4}>
+                    <RecItem product={product}/> 
+                </Grid>
+            ))}
+        </Grid>
+        </>
    );
 
     const FilledCart = () => (
