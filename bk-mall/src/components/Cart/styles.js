@@ -29,5 +29,10 @@ export default makeStyles((theme) => ({
     },
     space: {
         marginTop: '13%',
-    }
+    },
+    media: {
+        height: 0,
+        paddingTop : '56.25%',
+        marginBottom : '20px'
+    },
 }))

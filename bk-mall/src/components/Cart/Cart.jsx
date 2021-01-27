@@ -1,15 +1,21 @@
-import React from 'react';
-import { Container, Typography, Grid, Button } from '@material-ui/core';
+import React, {useState} from 'react';
+import { Container, Typography, Grid, Button, CardMedia } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { commerce } from '../../lib/commerce';
 
 import useStyles from './styles';
 import CartItem from './CartItem/CartItem';
-import RecItem from './RecItem/RecItem';
+import BaseProduct from '../../components/Products/Product/BaseProduct';
 
 const Cart = ({ products, cart, handleUpdateCartQty, handleRemoveFromUpdate, handleEmptyCart }) => {
+    const [recProducts, setRecProducts] = useState([]);
     const classes = useStyles();
-    const product = products.sort(() => Math.random() - Math.random())
-                    .find(() => true);
+    
+    const fetchRecProducts = async () => {  
+        const { data } = await commerce.products.list({limit:4});
+        
+        setRecProducts(data);
+    }
 
     const EmptyCart = () => (
         <>
@@ -20,16 +26,18 @@ const Cart = ({ products, cart, handleUpdateCartQty, handleRemoveFromUpdate, han
             <Button component={Link} to="/" className={classes.link} type="button" color="primary" variant="contained"> start adding some</Button>
         </Typography>
         <div className={classes.space}/>
-        <Typography variant="h4" >
+        <Typography variant="h4" gutterBottom>
             <div>이런 상품은 어떠신가요?</div>
         </Typography>
         <Grid container spacing={4}>
-            {product && products.map((product)=> (
-                <Grid item key={products.id} xs={4}>
-                    <RecItem product={product}/> 
+            {recProducts.map((product)=> (
+                <Grid item key={product.id} xs={3}>
+                    <CardMedia className={classes.media} title={product.name} image={product.media.source}/>
+                    <BaseProduct product={product}  />
                 </Grid>
             ))}
         </Grid>
+        
         </>
    );
 
@@ -52,7 +60,13 @@ const Cart = ({ products, cart, handleUpdateCartQty, handleRemoveFromUpdate, han
         </>
     );
 
-    if(!cart.line_items) return 'Loading...';
+    if(!cart.line_items) {
+        return 'loading...'
+    }
+    
+    if(cart.line_items.length === 0) {
+        fetchRecProducts();
+    }
 
     return(
         <Container>
@@ -62,5 +76,6 @@ const Cart = ({ products, cart, handleUpdateCartQty, handleRemoveFromUpdate, han
         </Container>
     )
 }
+
 
 export default Cart;
