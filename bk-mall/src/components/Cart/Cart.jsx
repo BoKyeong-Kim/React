@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Container, Typography, Grid, Button, CardMedia } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { commerce } from '../../lib/commerce';
@@ -7,15 +7,22 @@ import useStyles from './styles';
 import CartItem from './CartItem/CartItem';
 import BaseProduct from '../../components/Products/Product/BaseProduct';
 
-const Cart = ({ products, cart, handleUpdateCartQty, handleRemoveFromUpdate, handleEmptyCart }) => {
+const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromUpdate, handleEmptyCart }) => {
     const [recProducts, setRecProducts] = useState([]);
     const classes = useStyles();
-    
+
     const fetchRecProducts = async () => {  
-        const { data } = await commerce.products.list({limit:4});
-        
-        setRecProducts(data);
+        const { data } = await commerce.products.list({limit:20});
+        data.sort(() => Math.random() - 0.5)
+        const sliced_data = data.slice(0,4)
+        setRecProducts(sliced_data);
     }
+
+    useEffect(() => {
+        fetchRecProducts();
+    }, [])
+
+    
 
     const EmptyCart = () => (
         <>
@@ -64,9 +71,9 @@ const Cart = ({ products, cart, handleUpdateCartQty, handleRemoveFromUpdate, han
         return 'loading...'
     }
     
-    if(cart.line_items.length === 0) {
-        fetchRecProducts();
-    }
+    // if(cart.line_items.length === 0) {
+    //     fetchRecProducts();
+    // }
 
     return(
         <Container>
