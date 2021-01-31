@@ -1,18 +1,22 @@
-import React, { useState,useEffect } from 'react';
-import { Button } from '@material-ui/core';
+import React, { useState } from 'react';
 import Modal from './Modal/Modal';
 import './Modal/styles.css';
+import { Button } from '@material-ui/core';
 
-const DetailView = () => {
+const DetailView = ({ product, fetchProduct, detail }) => {
     const [show, setShow] = useState(false);
 
-    const openModal = () => setShow(true);
+    const openModal = (productId) => {
+        fetchProduct(productId);
+        setShow(true);
+    }
     const closeModal = () => setShow(false);
   
+    
     return (
       <div className="App">
-        {!show && <button onClick={openModal}>Show modal</button>}
-        <Modal closeModal={closeModal} show={show} />
+        {!show && <button onClick={() => openModal(product.id)}>Show modal</button>}
+        <Modal closeModal={closeModal} show={show} detail={detail} />
       </div>
     );
 }

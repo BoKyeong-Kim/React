@@ -6,12 +6,12 @@ import useStyles from './styles';
 import BaseProduct from './BaseProduct';
 import DetailView from './DetailView';
 
-const Product = ({ product, onAddToCart }) => {
+const Product = ({ product, onAddToCart, fetchProduct, detail }) => {
     const classes = useStyles();
 
     return(
         <>
-          <DetailView />
+          <DetailView product={product} fetchProduct={fetchProduct} detail={detail} />
             <Card className={classes.root}>
             <CardMedia className={classes.media} title={product.name} image={product.media.source}/>
             <CardContent>

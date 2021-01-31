@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 const App = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({});
+    const [detail, setDatail] = useState({});
 
     const fetchProducts = async () => { 
         const { data } = await commerce.products.list();
@@ -13,7 +14,13 @@ const App = () => {
         setProducts(data);
     }
 
-    const fetchCart = async () => {
+    const fetchRetrieveProduct = async (productId) => {
+        const product = await commerce.products.retrieve(productId);
+        
+        setDatail(product);
+    }
+
+const fetchCart = async () => {
         setCart(await commerce.cart.retrieve());
     }
 
@@ -46,7 +53,6 @@ const App = () => {
         fetchCart();
     }, []);
 
-    console.log(products);
 
     return(
         <Router>
@@ -54,7 +60,12 @@ const App = () => {
                 <Navbar totalItems={cart.total_items}/>
                 <Switch>
                     <Route exact path="/">
-                        <Products products={products} onAddToCart={handleAddToCart}/>
+                        <Products 
+                            products={products} 
+                            onAddToCart={handleAddToCart}
+                            fetchProduct={fetchRetrieveProduct}
+                            detail={detail}
+                        />
                     </Route>
                     <Route exact path="/cart">
                         <Cart 
@@ -64,6 +75,9 @@ const App = () => {
                             handleRemoveFromUpdate={handleRemoveFromUpdate}
                             handleEmptyCart={handleEmptyCart}
                         />
+                    </Route>
+                    <Route exact path="/checkout">
+
                     </Route>
                 </Switch>
             </div>
