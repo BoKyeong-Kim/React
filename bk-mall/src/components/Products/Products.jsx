@@ -5,7 +5,7 @@ import Product from './Product/Product';
 import Modal from './Modal/Modal';
 import useStyles from './styles';
 
-const Products = ({ products, onAddToCart, fetchProduct, detail }) => {
+const Products = ({ products, onAddToCart, fetchProduct }) => {
     const classes = useStyles();
     
     return (
