@@ -1,24 +1,6 @@
 import React, { useState } from 'react'
 import { Popover, Button, Typography, Card, CardContent, CardMedia } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        maxWidth: '100%'
-    },
-    typography: {
-      padding: theme.spacing(2),
-    },
-    media: {
-        height: 0,
-        paddingTop : '56.25%'
-    },
-    cardContent : {
-        display : 'flex',
-        justifyContent : 'space-between',
-        padding: theme.spacing(20)
-    }
-  }));
+import useStyles from './styles';
 
 const Modal = ({ fetchProduct, product }) => {
     const classes = useStyles();
