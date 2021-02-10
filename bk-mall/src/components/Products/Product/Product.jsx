@@ -1,11 +1,12 @@
 import React from 'react';
-import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core';
+import { Card, CardMedia, CardContent, CardActions, IconButton } from '@material-ui/core';
 import { AddShoppingCart } from '@material-ui/icons';
+import Modal from '../Modal/Modal';
 import useStyles from './styles';
 
 import BaseProduct from './BaseProduct';
 
-const Product = ({ product, onAddToCart }) => {
+const Product = ({ product, onAddToCart, fetchProduct }) => {
     const classes = useStyles();
 
     return(
@@ -18,6 +19,7 @@ const Product = ({ product, onAddToCart }) => {
                 <IconButton aria-label="Add to Cart" onClick={()=> onAddToCart(product.id, 1)}>
                     <AddShoppingCart />
                 </IconButton>
+                <Modal fetchProduct={fetchProduct} product={product}/>
             </CardActions>
             </CardContent>
         </Card>
