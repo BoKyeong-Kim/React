@@ -14,7 +14,6 @@ const Product = ({ product, onAddToCart }) => {
             <CardMedia className={classes.media} title={product.name} image={product.media.source}/>
             <CardContent>
             <BaseProduct product={product}/>
-                <Typography variant="body2" dangerouslySetInnerHTML={{__html: product.description}} color="textSecondary" />
             <CardActions disableSpacing className={classes.cardActions}>
                 <IconButton aria-label="Add to Cart" onClick={()=> onAddToCart(product.id, 1)}>
                     <AddShoppingCart />
