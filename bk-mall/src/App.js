@@ -64,7 +64,6 @@ const fetchCart = async () => {
                             products={products} 
                             onAddToCart={handleAddToCart}
                             fetchProduct={fetchRetrieveProduct}
-                            detail={detail}
                         />
                     </Route>
                     <Route exact path="/cart">
