@@ -40,14 +40,19 @@ const Modal = ({ fetchProduct, product }) => {
                 vertical: 'center',
                 horizontal: 'center',
             }}
-        >
+            >
+            <div className={classes.main}>
             <CardMedia className={classes.media} title={product.name} image={product.media.source}/>
             <CardContent className={classes.cardContent}>
             <Typography variant="h5" gutterBottom>
                 {product.name}
             </Typography>
-            <Typography variant="body3" dangerouslySetInnerHTML={{__html: product.description}} color="textSecondary" />
+            <Typography variant="h5" color="textSecondary" gutterBottom>
+                {product.price.formatted_with_code}
+            </Typography>
             </CardContent>
+            <Typography className={classes.content} variant="body3" dangerouslySetInnerHTML={{__html: product.description}} color="textSecondary" />
+            </div>
         </Popover>
         </Card>
         </>
