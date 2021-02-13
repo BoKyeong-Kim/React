@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography, IconButton, Badge, CssBaseline, Switch  } 
 import { ShoppingCart } from '@material-ui/icons';
 import { Link, useLocation } from 'react-router-dom';
 import clsx from "clsx";
-import {orange, lightBlue, deepPurple, deepOrange} from "@material-ui/core/colors";
+import { orange, lightBlue, deepPurple, deepOrange } from "@material-ui/core/colors";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 import logo from '../../assets/rocketlogo.png'
