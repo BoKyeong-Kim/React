@@ -21,11 +21,19 @@ export default makeStyles((theme)=> ({
         flexGrow: 1,
     },
     menuButton: {
-        marginRight: theme.spacing(2)
+        marginRight: theme.spacing(2),
     },
     image : {
         marginLeft : '10px',
         marginRight: '10px',
+    },      root: {
+        display: "flex"
     },
-   
+    toolbar: {
+    paddingRight: 24 
+    },
+    menuButtonHidden: {
+    display: "none"
+    },  
+    appBarSpacer: theme.mixins.toolbar,
 }))
