@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography, IconButton, Badge, CssBaseline, Switch  } 
 import { ShoppingCart } from '@material-ui/icons';
 import { Link, useLocation } from 'react-router-dom';
 import clsx from "clsx";
-import { orange, lightBlue, deepPurple, deepOrange } from "@material-ui/core/colors";
+import { indigo, blueGrey } from "@material-ui/core/colors";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 import logo from '../../assets/rocketlogo.png'
@@ -12,8 +12,8 @@ import useStyles from './styles';
 const Navbar = ({ totalItems }) => { 
     const [darkState, setDarkState] = useState(false);
     const palletType = darkState ? "dark" : "light";
-    const mainPrimaryColor = darkState ? orange[500] : lightBlue[500];
-    const mainSecondaryColor = darkState ? deepOrange[900] : deepPurple[500];
+    const mainPrimaryColor = darkState ? blueGrey[700] : indigo[400];
+    const mainSecondaryColor = darkState ? blueGrey[900] : indigo[800];
     const darkTheme = createMuiTheme({
     palette: {
       type: palletType,
