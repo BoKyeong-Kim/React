@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Badge, CssBaseline, Switch  } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, IconButton, Badge, CssBaseline, Switch } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
 import { Link, useLocation } from 'react-router-dom';
 import clsx from "clsx";
@@ -38,7 +38,7 @@ const Navbar = ({ totalItems }) => {
         <AppBar position="absolute"
           className={clsx(classes.appBar, classes.appBarShift)}
          >
-                <Toolbar className={classes.toolbar}>
+                <Toolbar className={classes.toolbar}  color="inherit">
                     <Typography className={classes.title} component="h1"
                         variant="h6"
                         color="inherit"
