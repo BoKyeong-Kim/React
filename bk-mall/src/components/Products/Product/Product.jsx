@@ -6,7 +6,7 @@ import useStyles from './styles';
 
 import BaseProduct from './BaseProduct';
 
-const Product = ({ product, onAddToCart, fetchProduct }) => {
+const Product = ({ product, onAddToCart }) => {
     const classes = useStyles();
 
     return(
@@ -19,7 +19,7 @@ const Product = ({ product, onAddToCart, fetchProduct }) => {
                 <IconButton aria-label="Add to Cart" onClick={()=> onAddToCart(product.id, 1)}>
                     <AddShoppingCart />
                 </IconButton>
-                <Modal fetchProduct={fetchProduct} product={product}/>
+                <Modal product={product}/>
             </CardActions>
             </CardContent>
         </Card>

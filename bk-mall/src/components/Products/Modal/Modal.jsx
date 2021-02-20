@@ -2,12 +2,11 @@ import React, { useState } from 'react'
 import { Popover, Button, Typography, Card, CardContent, CardMedia } from '@material-ui/core';
 import useStyles from './styles';
 
-const Modal = ({ fetchProduct, product }) => {
+const Modal = ({ product }) => {
     const classes = useStyles();
     const [anchorEI, setAnchorEI] = useState(null);
     
     const handleClick = (productId) => {
-        fetchProduct(productId)
         setAnchorEI(true);
     }
 

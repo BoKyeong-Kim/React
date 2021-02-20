@@ -6,18 +6,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 const App = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({});
-    const [detail, setDatail] = useState({});
-
+    
     const fetchProducts = async () => { 
         const { data } = await commerce.products.list();
 
         setProducts(data);
-    }
-
-    const fetchRetrieveProduct = async (productId) => {
-        const product = await commerce.products.retrieve(productId);
-        
-        setDatail(product);
     }
 
 const fetchCart = async () => {
@@ -63,7 +56,6 @@ const fetchCart = async () => {
                         <Products 
                             products={products} 
                             onAddToCart={handleAddToCart}
-                            fetchProduct={fetchRetrieveProduct}
                         />
                     </Route>
                     <Route exact path="/cart">
