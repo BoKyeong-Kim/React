@@ -11,6 +11,7 @@ const Checkout = ({ cart, order, onCaptureCheckout }) => {
     const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null);
     const [shippingData, setShippingData] = useState({});
+    const [isFinished, setIsFinished] = useState(false);
 
     const classes = useStyle();
 
@@ -32,6 +33,18 @@ const Checkout = ({ cart, order, onCaptureCheckout }) => {
         nextStep();
     }
 
+    let Confirmation = () => order.customer ? (
+        <>
+        </>
+    ) : isFinished ? (
+        <>
+        </>
+    ) : (
+        <>
+        </>
+    );
+
+
     const Form = () => activeStep === 0
     ? <AddressForm checkoutToken={checkoutToken} next={next}/>
     : 'payment'
@@ -49,7 +62,7 @@ const Checkout = ({ cart, order, onCaptureCheckout }) => {
                             </Step>
                         ))}
                     </Stepper>
-                    {activeStep === steps.length ? 'test' : checkoutToken && <Form />}
+                    {activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form />}
                 </Paper>
             </main>
         </>
