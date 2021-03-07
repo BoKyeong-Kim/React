@@ -56,9 +56,9 @@ const AddressForm = ({ checkoutToken, next }) => {
     return (
         <>
             <Typography variant="h6" gutterBottom>Shipping Address</Typography>
-            <FormProvider {...methods}>
+            <FormProvider {...methods} >
                 <form onSubmit = {methods.handleSubmit((data) => next({...data, shippingCountry}))}>
-                    <Grid container spacing={3}>
+                    <Grid container spacing={3} >
                         <FormInput name="firstName" label="First name" />
                         <FormInput name='lastName' label='Last name' />
                         <FormInput name='address1' label='Address' />
@@ -98,7 +98,7 @@ const AddressForm = ({ checkoutToken, next }) => {
                     </Grid>
                     <br />
                     <div style={{ display:' flex', justifyContent: 'space-between'}}>
-                        <Button component={Link} to='./cart' variant="outlined">Back to Cart</Button> 
+                        <Button component={Link} to='./cart' variant="contained">Back to Cart</Button> 
                         <Button type="submit" variant="contained" color="primary">Next</Button>
                     </div>
                 </form>
