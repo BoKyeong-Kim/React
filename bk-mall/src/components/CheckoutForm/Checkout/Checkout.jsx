@@ -36,6 +36,11 @@ const Checkout = ({ cart, order, onCaptureCheckout }) => {
         nextStep();
     };
 
+    const timeout = () => {
+        setTimeout(() => {
+            setIsFinished(true)
+        },3000);
+    }
 
     let Confirmation = () => order.customer ? (
         <>
@@ -65,7 +70,7 @@ const Checkout = ({ cart, order, onCaptureCheckout }) => {
 
     const Form = () => activeStep === 0
     ? <AddressForm checkoutToken={checkoutToken} next={next}/>
-    : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} />
+    : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} timeout={timeout} />
 
 
     return (
