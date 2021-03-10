@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# BK-mall
+[e-commerce](https://github.com/BoKyeong-Kim/React/tree/master/e-commerce)기반의 서비스 제작
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 이번 프로젝트를 통해 느낀 점
+- commerce.js API를 사용하여 어떻게 통신을 하는지, 내가 필요한 기능들은 무엇이 있는지 깨닫는 것이 중요하다.
+- material-ui를 사용하여 보여지는 화면을 어떻게 구성하느냐에 대한 사용자경험(UX)을 좋게 만드는 것이 중요하다.
+- log를 자주 찍어보며 통신이 잘 되는지, 값이 잘 넘어오는지에 파악하자
+- 기능별로 컴포넌트를 나누기 위해서 어떻게 구조화할 것인지 기획하여 시작하자.
+    - 처음 구성할 때 막막하였는데 한번 구조적으로 분리하고 어떤식으로 연결이 되는지를 파악하니 감이 생겼다.
+- 대략적으로 큰 틀에 대해 만들고나서 기능을 추가하자.
+    - 제품 리스트 중 장바구니가 비어있을 때 랜덤으로 4개 추천해주는 화면 구성
+    - 메인화면에서 제품을 클릭했을 때 새창으로 상세한 설명을 띄워주는 기능 구성  
+    - 다크 모드 구현
+- 아이디어는 다 적어두자
+    - ex) 실제 아이디어
+    - 아이디어 1)  추후 카트가 비어있다는 화면 밑에 이런 아이템들은 어떤지 추천해주는 걸 만들어봐도 좋을 것 같음
+    - 아이디어 2) home 화면에서 item(사진, 제품명)을 클릭했을 때 더 자세한 화면이 나타나도록 → 상세화면
+- 처음부터 다 구현하려하지말고 천천히 테스트 하면서 조금씩 기능을 확장시키자.
+- 기능 구현시 같은 실수를 줄이기 위해 어느 부분에서 막혔는지, 어떻게 해결 했는지 기록해두자.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 참고 자료 및 공식 문서
+[**commerce.js API Documentation**](https://commercejs.com/docs/)
+[react-router](https://reactrouter.com/web/api/location)
+[material-ui](https://material-ui.com/components/links/)
