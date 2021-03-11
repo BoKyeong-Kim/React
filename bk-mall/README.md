@@ -22,6 +22,6 @@
 
 
 ## 참고 자료 및 공식 문서
-[**commerce.js API Documentation**](https://commercejs.com/docs/)
-[react-router](https://reactrouter.com/web/api/location)
-[material-ui](https://material-ui.com/components/links/)
+- [**commerce.js API Documentation**](https://commercejs.com/docs/)
+- [react-router](https://reactrouter.com/web/api/location)
+- [material-ui](https://material-ui.com/components/links/)
